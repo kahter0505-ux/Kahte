@@ -3,79 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ليالي الطيبين | استبانة التميز</title>
+    <title>ليالي الطيبين | استبانة تشخيص الواقع</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Almarai', sans-serif; background-color: #fcfaf7; color: #4a3f35; }
-        .white-card { background: #ffffff; border: 1px solid #eee6de; box-shadow: 0 10px 30px rgba(74, 63, 53, 0.05); transition: all 0.4s ease; }
-        .white-card:hover { box-shadow: 0 15px 40px rgba(217, 119, 6, 0.1); border-color: #d97706; }
-        .gold-button { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); color: white; }
-        .input-elegant { background: #fdfdfd; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; width: 100%; color: #4a3f35; outline: none; transition: 0.3s; }
-        .input-elegant:focus { border-color: #d97706; background: #fff; }
+        .white-card { background: #ffffff; border: 1px solid #eee6de; box-shadow: 0 4px 20px rgba(74, 63, 53, 0.03); transition: all 0.3s ease; }
+        .white-card:hover { border-color: #d97706; transform: translateY(-2px); }
+        .gold-button { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); color: white; transition: all 0.3s; }
+        .gold-button:hover { opacity: 0.9; transform: scale(1.02); }
+        .input-elegant { background: #fdfdfd; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; width: 100%; color: #4a3f35; outline: none; }
+        .section-title { color: #b45309; border-right: 4px solid #d97706; padding-right: 10px; margin: 25px 0 15px 0; font-weight: bold; }
         #successSection { display: none; }
     </style>
 </head>
-<body class="py-16 px-6">
+<body class="py-12 px-4 md:px-6">
 
-    <div class="max-w-3xl mx-auto">
-        <!-- الهوية الجديدة المشرقة -->
-        <header class="text-center mb-16">
-            <h1 class="text-4xl font-bold text-[#b45309] tracking-tight mb-4">ليالي الطيبين</h1>
-            <p class="text-gray-500 font-light text-lg">استمارة تشخيص الواقع وتطوير التجربة</p>
-            <div class="w-20 h-1 bg-[#d97706] mx-auto mt-4 rounded-full opacity-30"></div>
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-[#b45309] mb-3">ليالي الطيبين</h1>
+            <p class="text-gray-500 italic">نحو صناعة تجربة استثنائية وقيمة سوقية رائدة</p>
         </header>
 
-        <iframe name="hidden_frame" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
 
         <form id="auditForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-8">
             
-            <div class="grid grid-cols-1 gap-8">
-                <!-- السؤال 1 -->
-                <div class="white-card p-8 rounded-2xl">
-                    <label class="block text-sm font-bold text-gray-700 mb-3">1. هل تشرفون على المطعم بشكل يومي؟</label>
-                    <input type="text" name="entry.1276136133" placeholder="اكتب ملاحظتك هنا.." class="input-elegant" required>
+            <!-- القسم الأول: روح المطعم والتشغيل -->
+            <h2 class="section-title text-xl">أولاً: واقع التشغيل والروح العامة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">1. هل تشرف على المطعم يومياً بنفسك؟</label>
+                    <select name="entry.1276136133" class="input-elegant" required>
+                        <option value="">اختر..</option>
+                        <option value="نعم، دائماً">نعم، دائماً</option>
+                        <option value="أحياناً">أحياناً</option>
+                        <option value="يوجد مدير مسؤول">يوجد مدير مسؤول</option>
+                    </select>
                 </div>
-
-                <!-- السؤال 2 -->
-                <div class="white-card p-8 rounded-2xl">
-                    <label class="block text-sm font-bold text-gray-700 mb-3">2. من هم المنافسون الأقوى في منطقتك حالياً؟</label>
-                    <input type="text" name="entry.1005025151" placeholder="أسماء المطاعم المنافسة.." class="input-elegant" required>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">2. ما هو "الطبق الملك" الأكثر مبيعاً؟</label>
+                    <input type="text" name="entry.1005025151" placeholder="اسم الصنف الأكثر طلباً.." class="input-elegant" required>
                 </div>
-
-                <!-- السؤال 3 -->
-                <div class="white-card p-8 rounded-2xl">
-                    <label class="block text-sm font-bold text-gray-700 mb-3">3. الميزانية الشهرية المرصودة للتسويق؟</label>
-                    <input type="text" name="entry.1099859393" placeholder="مثلاً: 2000 - 5000 ريال.." class="input-elegant" required>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">3. كيف ترى رضا الزبائن عن سرعة الخدمة؟</label>
+                    <select name="entry.1099859393" class="input-elegant" required>
+                        <option value="">اختر..</option>
+                        <option value="ممتاز">ممتاز</option>
+                        <option value="جيد">جيد</option>
+                        <option value="يحتاج تطوير">يحتاج تطوير</option>
+                    </select>
                 </div>
-
-                <!-- السؤال 4 -->
-                <div class="white-card p-8 rounded-2xl">
-                    <label class="block text-sm font-bold text-gray-700 mb-3">4. كيف تقيم جودة الخدمة الحالية؟</label>
-                    <input type="text" name="entry.997508088" placeholder="ممتاز، جيد، يحتاج تحسين.." class="input-elegant" required>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">4. أول شيء يلفت انتباه الزبون عند دخوله؟</label>
+                    <input type="text" name="entry.997508088" placeholder="الديكور، الرائحة، الترحيب.." class="input-elegant" required>
                 </div>
+            </div>
 
-                <!-- السؤال 5 -->
-                <div class="white-card p-8 rounded-2xl">
-                    <label class="block text-sm font-bold text-gray-700 mb-3">5. تجربتك السابقة مع "المؤثرين" (المشاهير)؟</label>
-                    <textarea name="entry.1678168052" rows="4" placeholder="هل كانت النتيجة مرضية؟ صف لنا الأثر.." class="input-elegant" required></textarea>
+            <!-- القسم الثاني: السوق والمنافسة -->
+            <h2 class="section-title text-xl">ثانياً: المنافسة والمحيط</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">5. من هو "المنافس الجار" الأقوى لك؟</label>
+                    <input type="text" name="entry.1678168052" placeholder="اسم المطعم المنافس.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">6. لماذا يختارك الزبون ويترك غيرك؟</label>
+                    <input type="text" name="entry.212345678" placeholder="الطعم، السعر، الموقع.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">7. الفئة الأكثر زيارة للمطعم حالياً؟</label>
+                    <select name="entry.312345678" class="input-elegant" required>
+                        <option value="">اختر..</option>
+                        <option value="عائلات">عائلات</option>
+                        <option value="شباب">شباب</option>
+                        <option value="موظفون (غداء)">موظفون (غداء)</option>
+                        <option value="تطبيقات توصيل">تطبيقات توصيل</option>
+                    </select>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">8. هل الزبائن "وجوه متكررة" أم جدد؟</label>
+                    <select name="entry.412345678" class="input-elegant" required>
+                        <option value="">اختر..</option>
+                        <option value="أغلبهم دائمون">أغلبهم دائمون</option>
+                        <option value="أغلبهم جدد">أغلبهم جدد</option>
+                        <option value="خليط متوازن">خليط متوازن</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- القسم الثالث: أوقات الذروة والطلبات -->
+            <h2 class="section-title text-xl">ثالثاً: تفاصيل الحركة والطلبات</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">9. متى يشهد المطعم أعلى "زحمة"؟</label>
+                    <input type="text" name="entry.512345678" placeholder="مثلاً: مساءً، الويكند.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">10. نسبة مبيعات تطبيقات التوصيل؟</label>
+                    <input type="text" name="entry.612345678" placeholder="تقريباً كم % من الدخل؟" class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">11. هل يطلب الزبائن أصنافاً غير موجودة؟</label>
+                    <input type="text" name="entry.712345678" placeholder="أصناف مفقودة يطلبها الناس.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">12. هل يتأثر دخلك بتغير الفصول (رمضان، شتاء)؟</label>
+                    <input type="text" name="entry.812345678" placeholder="أكثر المواسم تأثيراً.." class="input-elegant" required>
+                </div>
+            </div>
+
+            <!-- القسم الرابع: التسويق والمستقبل -->
+            <h2 class="section-title text-xl">رابعاً: التسويق والطموح القادم</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">13. المنصة الأكثر تفاعلاً معك حالياً؟</label>
+                    <input type="text" name="entry.912345678" placeholder="تيك توك، قوقل ماب، سناب.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">14. تجربة الإعلان مع "المشاهير" سابقاً؟</label>
+                    <select name="entry.101234567" class="input-elegant" required>
+                        <option value="">اختر..</option>
+                        <option value="ناجحة">ناجحة</option>
+                        <option value="غير مجدية">غير مجدية</option>
+                        <option value="لم أجرب">لم أجرب</option>
+                    </select>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">15. الميزانية الشهرية "البسيطة" للتسويق؟</label>
+                    <select name="entry.111234567" class="input-elegant" required>
+                        <option value="">اختر..</option>
+                        <option value="أقل من 1000">أقل من 1000</option>
+                        <option value="1000 - 5000">1000 - 5000</option>
+                    </select>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">16. هل المظهر الحالي (المنيو/التغليف) فخم؟</label>
+                    <input type="text" name="entry.121234567" placeholder="نعم / يحتاج تحديث.." class="input-elegant" required>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">17. كيف تستقبل ملاحظات وشكاوى الزبائن؟</label>
+                    <input type="text" name="entry.131234567" placeholder="وجهاً لوجه، قوقل ماب.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl">
+                    <label class="block text-sm font-bold mb-2">18. هل تقدم عروضاً دورية حالياً؟</label>
+                    <input type="text" name="entry.141234567" placeholder="اذكر آخر عرض قمت به.." class="input-elegant" required>
+                </div>
+                <div class="white-card p-6 rounded-xl border-amber-200 bg-amber-50/30">
+                    <label class="block text-sm font-bold mb-2">19. أكثر شيء يضايقك حالياً وتتمنى حله؟ (مهم جداً)</label>
+                    <textarea name="entry.151234567" rows="2" placeholder="مشكلة تشغيلية أو تسويقية.." class="input-elegant" required></textarea>
+                </div>
+                <div class="white-card p-6 rounded-xl border-amber-200 bg-amber-50/30">
+                    <label class="block text-sm font-bold mb-2">20. هدفك الأول في الشهرين القادمين؟</label>
+                    <textarea name="entry.161234567" rows="2" placeholder="زيادة زبائن، شهرة، توصيل.." class="input-elegant" required></textarea>
                 </div>
             </div>
 
             <div class="text-center pt-10">
-                <button type="submit" class="gold-button font-bold py-5 px-20 rounded-xl shadow-lg hover:shadow-2xl transition-all text-lg tracking-wide">
-                    إرسال البيانات الآن
+                <button type="submit" class="gold-button font-bold py-5 px-20 rounded-2xl shadow-xl text-xl italic">
+                    اعتماد البيانات وبدء التحليل 🚀
                 </button>
             </div>
         </form>
 
-        <!-- قسم النجاح المشرق -->
-        <div id="successSection" class="text-center py-24 white-card rounded-3xl border-2 border-green-100">
-            <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span class="text-4xl">✨</span>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-3">شكرًا لك.. تم استلام بياناتك</h2>
-            <p class="text-gray-500">تم حفظ إجاباتك بنجاح في قاعدة بيانات ليالي الطيبين.</p>
+        <div id="successSection" class="text-center py-32 white-card rounded-3xl border-2 border-amber-100 animate-pulse">
+            <div class="text-7xl mb-6">✨</div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">تم استلام رؤيتك بنجاح</h2>
+            <p class="text-gray-500 text-lg italic">جاري العمل على تحويل هذه البيانات إلى واقع ملموس لـ "ليالي الطيبين".</p>
         </div>
     </div>
 
