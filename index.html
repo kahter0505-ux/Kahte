@@ -1,42 +1,65 @@
-<!-- استبدل قسم الـ Form في ملفك بهذا الكود -->
-<form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="_self" class="space-y-6">
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- 1. الإشراف اليومي -->
-        <div class="glass-card p-6 rounded-2xl">
-            <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">1. الإشراف اليومي:</label>
-            <!-- لاحظ الـ name هنا هو معرف جوجل الخاص بك -->
-            <input type="text" name="entry.1276136133" placeholder="هل تشرفون على المطعم يومياً؟" class="input-style" required>
-        </div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ليالي الطيبين | استمارة تشخيص الواقع</title>
+    <!-- استدعاء مكتبة التنسيق -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #0f172a; color: #f1f5f9; margin: 0; padding: 0; }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .input-style { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 12px; padding: 12px; font-size: 0.9rem; width: 100%; color: white; outline: none; }
+        .input-style:focus { border-color: #fbbf24; }
+    </style>
+</head>
+<body class="py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl font-bold gold-text mb-2 italic">استمارة تشخيص الواقع</h1>
+            <p class="text-slate-400 text-sm italic uppercase tracking-widest">إدارة الاستراتيجية - ليالي الطيبين</p>
+        </header>
 
-        <!-- 2. المنافسون -->
-        <div class="glass-card p-6 rounded-2xl">
-            <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">2. المنافسون في المنطقة:</label>
-            <input type="text" name="entry.1005025151" placeholder="اذكر أسماء المنافسين.." class="input-style" required>
-        </div>
+        <!-- الربط المباشر مع Google Forms -->
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" class="space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 1. الإشراف -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">1. الإشراف اليومي:</label>
+                    <input type="text" name="entry.1276136133" placeholder="هل تشرفون على المطعم يومياً؟" class="input-style" required>
+                </div>
+                <!-- 2. المنافسين -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">2. المنافسون في المنطقة:</label>
+                    <input type="text" name="entry.1005025151" placeholder="اذكر الأسماء.." class="input-style" required>
+                </div>
+                <!-- 3. الدخل -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">3. الدخل اليومي التقريبي:</label>
+                    <input type="text" name="entry.1099859393" placeholder="الرقم التقريبي يساعدنا في التحليل.." class="input-style" required>
+                </div>
+                <!-- 4. التقييم -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">4. تقييم خدمة العملاء:</label>
+                    <input type="text" name="entry.997508088" placeholder="جيد جداً / يحتاج تطوير.." class="input-style" required>
+                </div>
+            </div>
 
-        <!-- 3. الدخل اليومي -->
-        <div class="glass-card p-6 rounded-2xl">
-            <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">3. الدخل اليومي التقريبي:</label>
-            <input type="text" name="entry.1099859393" placeholder="الرقم يساعدنا في قياس النمو.." class="input-style" required>
-        </div>
+            <!-- 5. ملاحظات إضافية -->
+            <div class="glass-card p-6 rounded-2xl">
+                <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">5. الأثر الملموس للمؤثرين سابقاً:</label>
+                <textarea name="entry.1678168052" rows="3" class="input-style" placeholder="صف تجربتك السابقة هنا.." required></textarea>
+            </div>
 
-        <!-- 4. تقييم الخدمة -->
-        <div class="glass-card p-6 rounded-2xl">
-            <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">4. تقييم خدمة العملاء:</label>
-            <input type="text" name="entry.997508088" placeholder="جيد جداً، يحتاج تطوير.." class="input-style" required>
-        </div>
+            <div class="text-center pt-8">
+                <button type="submit" class="bg-gradient-to-r from-amber-500 to-amber-700 text-slate-900 font-bold py-4 px-12 rounded-full shadow-2xl hover:scale-105 transition-all italic">
+                    إرسال كافة البيانات للاعتماد 🚀
+                </button>
+            </div>
+        </form>
     </div>
-
-    <!-- 5. الأثر الملموس -->
-    <div class="glass-card p-6 rounded-2xl">
-        <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">5. الأثر الملموس للمؤثرين سابقاً:</label>
-        <textarea name="entry.1678168052" rows="3" class="input-style" placeholder="صف تجربتك مع الحملات السابقة.." required></textarea>
-    </div>
-
-    <div class="text-center pt-8">
-        <button type="submit" class="bg-gradient-to-r from-amber-500 to-amber-700 text-slate-900 font-bold py-4 px-12 rounded-full shadow-2xl hover:scale-105 transition-all italic">
-            إرسال كافة البيانات للاعتماد 🚀
-        </button>
-    </div>
-</form>
+</body>
+</html>
