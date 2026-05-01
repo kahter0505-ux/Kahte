@@ -3,101 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشروع نمو ليالي الطيبين | 2026</title>
+    <title>ليالي الطيبين | استبانة تشخيص الواقع</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; background: #f0f2f5; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .gradient-text { background: linear-gradient(90deg, #ea580c, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card-hover:hover { transform: scale(1.02); transition: all 0.3s ease; }
+        body { font-family: 'Tajawal', sans-serif; background: #0f172a; color: #f1f5f9; }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .input-style { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 12px; padding: 12px; font-size: 0.8rem; width: 100%; outline: none; transition: 0.3s; }
+        .input-style:focus { border-color: #fbbf24; box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="py-12 px-4">
 
-    <div class="max-w-5xl mx-auto my-10 px-4">
-        
-        <header class="glass rounded-3xl p-8 shadow-xl border-b-4 border-orange-600 mb-8 text-center">
-            <h1 class="text-4xl font-bold mb-2 text-slate-900">خطة الانتشار الاستراتيجي</h1>
-            <p class="text-2xl font-semibold gradient-text">مطعم ليالي الطيبين - جدة</p>
-            <div class="mt-4 flex justify-center gap-4">
-                <span class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-bold">فرع 1: فعال</span>
-                <span class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-bold">فرع 2: فعال</span>
-                <span class="bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-sm font-bold animate-pulse">فرع 3: قريباً</span>
-            </div>
+    <div class="max-w-3xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl font-bold gold-text mb-2">استمارة تشخيص الواقع</h1>
+            <p class="text-slate-400 text-sm italic underline decoration-amber-900">ليالي الطيبين - الاستراتيجية الرقمية</p>
         </header>
 
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 pr-4 border-r-4 border-orange-500">الهجوم الرقمي (Social Media Reach)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card-hover glass p-6 rounded-3xl shadow-lg border-b-4 border-black">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-3xl">📱</span>
-                        <h3 class="font-bold text-xl">تيك توك</h3>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-4">نشر "فيديوهات الجوع" اليومية لرفع الوعي بالعلامة التجارية في جدة.</p>
-                    <ul class="text-xs space-y-2 text-orange-700 font-bold">
-                        <li>• استهداف الترندات المحلية</li>
-                        <li>• تصوير كواليس القدر والحفرة</li>
-                    </ul>
+        <form action="رابط_قوقل_فورم_الجديد_هنا" class="space-y-6">
+            
+            <!-- مصفوفة الأسئلة -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- الإشراف -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">1. الإشراف اليومي:</label>
+                    <input type="text" placeholder="هل تشرفون على المطعم يومياً؟" class="input-style">
                 </div>
-                <div class="card-hover glass p-6 rounded-3xl shadow-lg border-b-4 border-yellow-400">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-3xl">👻</span>
-                        <h3 class="font-bold text-xl">سناب شات</h3>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-4">إعلانات جغرافية دقيقة تستهدف الموظفين والعائلات وقت الذروة.</p>
-                    <ul class="text-xs space-y-2 text-yellow-700 font-bold">
-                        <li>• إعلانات الخريطة (Map Ads)</li>
-                        <li>• تغطيات مشاهير جدة</li>
-                    </ul>
+                <!-- المنافسين -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">2. المنافسون في المنطقة:</label>
+                    <input type="text" placeholder="اذكر أسماء المنافسين.." class="input-style">
                 </div>
-                <div class="card-hover glass p-6 rounded-3xl shadow-lg border-b-4 border-blue-500">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-3xl">📍</span>
-                        <h3 class="font-bold text-xl">خرائط جوجل</h3>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-4">تحويل التقييم من 3.5 إلى 4.5 لضمان ظهور المطعم كخيار أول.</p>
-                    <ul class="text-xs space-y-2 text-blue-700 font-bold">
-                        <li>• حملة "قيم واحصل على حلا"</li>
-                        <li>• الرد الاحترافي على المراجعات</li>
-                    </ul>
+                <!-- الدخل -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">3. الدخل اليومي التقريبي:</label>
+                    <input type="text" placeholder="الرقم يساعدنا في قياس النمو.." class="input-style">
+                </div>
+                <!-- المنتج النجم -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">4. المنتج الأعلى طلباً:</label>
+                    <input type="text" placeholder="ما هو طبقك النجم؟" class="input-style">
                 </div>
             </div>
-        </section>
 
-        <section class="mb-12 bg-slate-900 p-8 rounded-3xl text-white shadow-2xl">
-            <h2 class="text-2xl font-bold mb-8 text-orange-400">نماذج نجاح عالمية بهوية شعبية</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="border-r border-slate-700 pr-6">
-                    <h4 class="font-bold text-lg mb-2 text-white">تجربة مطاعم "الأكل الشعبي الذكي"</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed">مطاعم لم تغير هويتها الورقية، ولكنها استعانت بمصورين محترفين لإظهار تفاصيل "اللحم والأرز" بجودة (4K)، مما أدى لزيادة الطلبات الخارجية بنسبة 40% في أول شهرين.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-2 text-white">استراتيجية "مشاهير الواقعية"</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed">دعوة مؤثرين يقومون بتجربة الأكل داخل السيارات أو في الجلسات الشعبية بعفوية، مما خلق ثقة عمياء لدى الجمهور وجعل المطعم "ترند" في مدينة جدة خلال أسبوع الافتتاح.</p>
-                </div>
+            <!-- سؤال التجربة السابقة -->
+            <div class="glass-card p-6 rounded-2xl">
+                <label class="block text-xs text-amber-400 mb-2 font-bold italic underline">5. الأثر الملموس للمؤثرين سابقاً:</label>
+                <textarea rows="3" class="input-style" placeholder="صف تجربتك مع الحملات السابقة.."></textarea>
             </div>
-        </section>
 
-        <section class="glass p-8 rounded-3xl shadow-lg border-l-8 border-orange-600">
-            <h2 class="text-2xl font-bold mb-6">خطة العمل (المرحلة الأولى)</h2>
-            <div class="space-y-4">
-                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                    <span class="bg-orange-600 text-white w-10 h-10 flex items-center justify-center rounded-xl font-bold">01</span>
-                    <p class="font-medium text-slate-700 underline decoration-orange-300">تصوير 20 مقطع "خلف الكواليس" للفروع الحالية.</p>
-                </div>
-                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                    <span class="bg-orange-600 text-white w-10 h-10 flex items-center justify-center rounded-xl font-bold">02</span>
-                    <p class="font-medium text-slate-700 underline decoration-orange-300">إطلاق حملة التمويل الجغرافي لاستهداف أحياء جدة النشطة.</p>
-                </div>
-                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                    <span class="bg-orange-600 text-white w-10 h-10 flex items-center justify-center rounded-xl font-bold">03</span>
-                    <p class="font-medium text-slate-700 underline decoration-orange-300">حفل افتتاح الفرع الثالث برعاية 3 مؤثرين من جدة.</p>
-                </div>
+            <!-- زر الإرسال -->
+            <div class="text-center pt-8">
+                <button type="submit" class="bg-gradient-to-r from-amber-500 to-amber-700 text-slate-900 font-bold py-4 px-12 rounded-full shadow-2xl hover:scale-105 transition-all italic">
+                    إرسال كافة البيانات للاعتماد 🚀
+                </button>
             </div>
-        </section>
-
+        </form>
     </div>
 
 </body>
