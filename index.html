@@ -9,7 +9,7 @@
         body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, sans-serif; }
         .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; height: 100%; transition: 0.3s; }
         .glass-card:hover { border-color: #d29922; }
-        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; }
+        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; appearance: none; }
         .input-field:focus { border-color: #58a6ff; outline: none; box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1); }
         .label-gold { color: #d29922; font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
     </style>
@@ -26,81 +26,69 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- س1 -->
+                <!-- السؤال 1: خيارات -->
                 <div class="glass-card p-6">
                     <label class="label-gold">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
                     <select name="entry.1090412351" class="input-field">
-                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">نمو المبيعات اليومية</option>
-                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">استقطاب زبائن جدد</option>
-                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">السيطرة الرقمية</option>
-                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">تنشيط الفترات الراكدة</option>
+                        <option value="" disabled selected>اختر المؤشر...</option>
+                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">1- نمو المبيعات اليومية</option>
+                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">2- استقطاب زبائن جدد</option>
+                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">3- السيطرة الرقمية</option>
+                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">4- تنشيط المبيعات</option>
                     </select>
                 </div>
 
-                <!-- س2 -->
+                <!-- السؤال 2: خيارات -->
                 <div class="glass-card p-6">
                     <label class="label-gold">2. العائق التشغيلي الأكبر حالياً:</label>
-                    <input type="text" name="entry.1598282361" class="input-field" placeholder="مثلاً: العمالة أو الجودة">
+                    <select name="entry.1598282361" class="input-field">
+                        <option value="" disabled selected>اختر العائق...</option>
+                        <option value="1- نقص أو عدم استقرار العمالة.">1- نقص العمالة</option>
+                        <option value="2- تذبذب جودة المواد الخام والموردين.">2- جودة المواد</option>
+                        <option value="3- بطء في تجهيز الطلبات وتسليمها.">3- بطء التجهيز</option>
+                        <option value="4- الحاجة لصيانة أو تحديث في مرافق المطعم.">4- حاجة للصيانة</option>
+                    </select>
                 </div>
 
-                <!-- س3 -->
+                <!-- السؤال 10: خيارات (المنصات الرقمية) -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">10. أي منصة رقمية تشعر أنها تجلب زبائن حقيقيين؟</label>
+                    <select name="entry.XXXX10" class="input-field">
+                        <option value="" disabled selected>اختر المنصة...</option>
+                        <option value="1- تيك توك.">1- تيك توك</option>
+                        <option value="2- سناب شات.">2- سناب شات</option>
+                        <option value="3- انستقرام.">3- انستقرام</option>
+                        <option value="4- قوقل ماب (الخرائط والتقييمات).">4- قوقل ماب</option>
+                        <option value="5- لا يوجد تأثير واضح لأي منصة حالياً.">5- لا يوجد تأثير</option>
+                    </select>
+                </div>
+
+                <!-- السؤال 12: خيارات -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">12. هل لديك تجارب سابقة في التسويق الإلكتروني؟</label>
+                    <select name="entry.XXXX12" class="input-field">
+                        <option value="" disabled selected>اختر تجربتك...</option>
+                        <option value="1- نعم، ولدي خبرة جيدة بالنتائج.">1- نعم، بخبرة جيدة</option>
+                        <option value="2- نعم، تجارب بسيطة وغير مستمرة.">2- تجارب بسيطة</option>
+                        <option value="3- لا، هذه هي التجربة الأولى للمطعم.">3- لا، تجربة أولى</option>
+                    </select>
+                </div>
+
+                <!-- حقول نصية (س3 و س4) -->
                 <div class="glass-card p-6">
                     <label class="label-gold">3. الميزانية الشهرية للتسويق:</label>
                     <input type="text" name="entry.1116664973" class="input-field" placeholder="حدد المبلغ التقريبي">
                 </div>
 
-                <!-- س4 -->
                 <div class="glass-card p-6">
                     <label class="label-gold">4. المنتج الأعلى طلباً (النجم):</label>
                     <input type="text" name="entry.135246757" class="input-field" placeholder="اسم الصنف">
                 </div>
 
-                <!-- س5 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">5. المنافسون في المنطقة:</label>
-                    <input type="text" name="entry.1362751433" class="input-field" placeholder="أبرز المنافسين">
-                </div>
-
-                <!-- س6 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">6. طبيعة الزبائن الحالية:</label>
-                    <input type="text" name="entry.XXXX6" class="input-field" placeholder="دائمين أم جدد">
-                </div>
-
-                <!-- س7 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">7. الفئة الأكثر تواجداً:</label>
-                    <input type="text" name="entry.XXXX7" class="input-field" placeholder="عائلات، شباب، موظفون">
-                </div>
-
-                <!-- س8 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">8. الميزة التنافسية الحالية:</label>
-                    <input type="text" name="entry.XXXX8" class="input-field" placeholder="لماذا يختاركم الزبون؟">
-                </div>
-
-                <!-- س9 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">9. تقييم السوشيال ميديا (1-5):</label>
-                    <input type="number" name="entry.XXXX9" min="1" max="5" class="input-field" placeholder="من 1 إلى 5">
-                </div>
-
-                <!-- س10 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">10. المنصة الأكثر تأثيراً:</label>
-                    <input type="text" name="entry.XXXX10" class="input-field" placeholder="تيك توك، سناب، قوقل ماب">
-                </div>
-
-                <!-- س11 (عرض كامل) -->
+                <!-- حقل الملاحظات (عرض كامل) -->
                 <div class="glass-card p-6 md:col-span-2">
                     <label class="label-gold">11. ملاحظات إضافية حول السمعة الرقمية:</label>
-                    <textarea name="entry.XXXX11" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
-                </div>
-
-                <!-- س12 (عرض كامل) -->
-                <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold">12. تجارب سابقة في التسويق الإلكتروني:</label>
-                    <input type="text" name="entry.XXXX12" class="input-field" placeholder="أذكر تجاربك السابقة">
+                    <textarea name="entry.1362751433" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
                 </div>
 
             </div>
