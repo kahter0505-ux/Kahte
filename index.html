@@ -7,66 +7,66 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; }
-        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; }
+        .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; height: 100%; transition: 0.3s; }
+        .glass-card:hover { border-color: #58a6ff; }
+        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; }
         .input-field:focus { border-color: #58a6ff; outline: none; box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1); }
-        .label-gold { color: #d29922; font-weight: 600; font-size: 0.9rem; }
+        .label-gold { color: #d29922; font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
     </style>
 </head>
 <body class="p-4 md:p-10">
 
-    <div class="max-w-5xl mx-auto">
-        <!-- الرأس -->
+    <div class="max-w-6xl mx-auto">
         <div class="text-center mb-10">
             <h1 class="text-3xl font-bold text-yellow-500 mb-2">استمارة تشخيص الواقع</h1>
-            <p class="text-gray-400 text-sm italic underline">ليالي الطيبين - الاستراتيجية الرقمية</p>
+            <p class="text-gray-400 text-sm italic underline">مطعم ليالي الطيبين - الاستراتيجية الرقمية</p>
         </div>
 
-        <!-- بداية النموذج -->
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="_self">
+        <!-- تم ضبط الـ Action والـ Entry IDs بناءً على رابطك -->
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- سؤال 1 -->
+                <!-- س1 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold mb-3 block">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
-                    <select name="entry.XXXXX1" class="input-field w-full p-3 rounded-lg">
-                        <option value="نمو المبيعات اليومية">نمو المبيعات اليومية</option>
-                        <option value="استقطاب زبائن جدد">استقطاب زبائن جدد</option>
-                        <option value="تصدر تطبيقات التوصيل">تصدر تطبيقات التوصيل</option>
+                    <label class="label-gold">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
+                    <select name="entry.1090412351" class="input-field">
+                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">1- نمو المبيعات اليومية ودخل الصندوق</option>
+                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">2- استقطاب زبائن جدد من سكان الحي</option>
+                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">3- السيطرة الرقمية وتصدر تطبيقات التوصيل</option>
+                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">4- تنشيط المبيعات في الفترات الراكدة</option>
                     </select>
                 </div>
 
-                <!-- سؤال 2 -->
+                <!-- س2 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold mb-3 block">2. العائق التشغيلي الأكبر:</label>
-                    <input type="text" name="entry.XXXXX2" class="input-field w-full p-3 rounded-lg" placeholder="مثلاً: العمالة أو الجودة">
+                    <label class="label-gold">2. العائق التشغيلي الأكبر حالياً:</label>
+                    <input type="text" name="entry.1598282361" class="input-field" placeholder="مثلاً: نقص عمالة، جودة مواد..">
                 </div>
 
-                <!-- سؤال 3 -->
+                <!-- س3 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold mb-3 block">3. الميزانية التسويقية الشهرية:</label>
-                    <input type="text" name="entry.XXXXX3" class="input-field w-full p-3 rounded-lg" placeholder="حدد المبلغ التقريبي">
+                    <label class="label-gold">3. الميزانية الشهرية المرصودة للتسويق:</label>
+                    <input type="text" name="entry.1116664973" class="input-field" placeholder="حدد المبلغ التقريبي">
                 </div>
 
-                <!-- سؤال 4 -->
+                <!-- س4 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold mb-3 block">4. المنتج الأعلى طلباً (النجم):</label>
-                    <input type="text" name="entry.XXXXX4" class="input-field w-full p-3 rounded-lg" placeholder="اسم الصنف">
+                    <label class="label-gold">4. المنتج الأعلى طلباً (النجم):</label>
+                    <input type="text" name="entry.135246757" class="input-field" placeholder="اسم الصنف">
                 </div>
 
-                <!-- سؤال 5 (عريض) -->
+                <!-- س5 -->
                 <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold mb-3 block">5. ملاحظات إضافية حول السمعة الرقمية:</label>
-                    <textarea name="entry.XXXXX5" rows="3" class="input-field w-full p-3 rounded-lg" placeholder="اكتب مرئياتك هنا..."></textarea>
+                    <label class="label-gold">5. ملاحظات إضافية حول السمعة الرقمية:</label>
+                    <textarea name="entry.1362751433" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
                 </div>
 
             </div>
 
-            <!-- زر الإرسال المميز -->
-            <div class="mt-10 text-center">
-                <button type="submit" class="bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-bold py-3 px-12 rounded-full shadow-lg transform transition hover:scale-105">
-                    🚀 ارسال كافة البيانات للاعتماد
+            <div class="mt-12 text-center">
+                <button type="submit" class="bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-bold py-4 px-16 rounded-full shadow-2xl transform transition hover:scale-105 text-lg">
+                    ارسال كافة البيانات للاعتماد 🚀
                 </button>
             </div>
         </form>
