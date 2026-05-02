@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استمارة تشخيص واقع ليالي الطيبين</title>
+    <title>استمارة تشخيص واقع ليالي الطيبين - كاملة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, sans-serif; }
         .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; height: 100%; transition: 0.3s; }
         .glass-card:hover { border-color: #d29922; }
-        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; appearance: none; }
-        .label-gold { color: #d29922; font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
+        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; }
+        .label-gold { color: #d29922; font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 8px; }
     </style>
 </head>
 <body class="p-4 md:p-10">
@@ -18,53 +18,108 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-10">
             <h1 class="text-3xl font-bold text-yellow-500 mb-2">استمارة تشخيص الواقع</h1>
-            <p class="text-gray-400 text-sm italic underline">مطعم ليالي الطيبين - الاستراتيجية الرقمية</p>
+            <p class="text-gray-400 text-sm italic underline">مطعم ليالي الطيبين - الاستراتيجية الرقمية الكاملة</p>
         </div>
 
         <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- س1: خيارات مطابقة تماماً للرابط -->
+                <!-- س1 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">1. ما هو المؤشر الذي إذا تحقق بعد 60 يوماً ستعتبر أن تعاوننا ناجحاً ومجدياً مالياً؟</label>
-                    <select name="entry.1090412351" class="input-field" required>
-                        <option value="" disabled selected>اختر المؤشر...</option>
-                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">1- نمو المبيعات اليومية</option>
-                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">2- استقطاب زبائن جدد</option>
-                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">3- السيطرة الرقمية</option>
-                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">4- تنشيط المبيعات</option>
+                    <label class="label-gold">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
+                    <select name="entry.1090412351" class="input-field">
+                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">نمو المبيعات اليومية</option>
+                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">استقطاب زبائن جدد</option>
+                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">السيطرة الرقمية</option>
+                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">تنشيط الفترات الراكدة</option>
                     </select>
                 </div>
 
-                <!-- س2: خيارات العوائق -->
+                <!-- س2 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">2. ما هو العائق التشغيلي الأكبر الذي يواجه المطعم حالياً؟</label>
-                    <select name="entry.1598282361" class="input-field" required>
-                        <option value="" disabled selected>اختر العائق...</option>
-                        <option value="1- نقص أو عدم استقرار العمالة.">1- نقص العمالة</option>
-                        <option value="2- تذبذب جودة المواد الخام والموردين.">2- جودة المواد</option>
-                        <option value="3- بطء في تجهيز الطلبات وتسليمها.">3- بطء التجهيز</option>
-                        <option value="4- الحاجة لصيانة أو تحديث في مرافق المطعم.">4- حاجة للصيانة</option>
+                    <label class="label-gold">2. العائق التشغيلي الأكبر حالياً:</label>
+                    <select name="entry.1598282361" class="input-field">
+                        <option value="1- نقص أو عدم استقرار العمالة.">نقص العمالة</option>
+                        <option value="2- تذبذب جودة المواد الخام والموردين.">جودة المواد</option>
+                        <option value="3- بطء في تجهيز الطلبات وتسليمها.">بطء التجهيز</option>
+                        <option value="4- الحاجة لصيانة أو تحديث في مرافق المطعم.">حاجة للصيانة</option>
                     </select>
                 </div>
 
-                <!-- س3: ميزانية التسويق -->
+                <!-- س3 -->
                 <div class="glass-card p-6">
                     <label class="label-gold">3. الميزانية التسويقية التقريبية شهرياً:</label>
-                    <input type="text" name="entry.1116664973" class="input-field" placeholder="مثلاً: 3000 ريال">
+                    <input type="text" name="entry.1116664973" class="input-field" placeholder="مثلاً: 5000 ريال">
                 </div>
 
-                <!-- س4: المنتج الأعلى طلباً -->
+                <!-- س4 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">4. ما هو المنتج الأعلى طلباً (النجم) حالياً؟</label>
+                    <label class="label-gold">4. المنتج الأعلى طلباً (النجم):</label>
                     <input type="text" name="entry.135246757" class="input-field" placeholder="اسم الصنف">
                 </div>
 
-                <!-- س5: ملاحظات السمعة الرقمية -->
+                <!-- س5 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">5. المنافس المباشر في المنطقة:</label>
+                    <input type="text" name="entry.1362751433" class="input-field" placeholder="اسم المنافس">
+                </div>
+
+                <!-- س6 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">6. طبيعة الزبائن الغالبة:</label>
+                    <select name="entry.XXXXX6" class="input-field">
+                        <option value="زبائن دائمين">أغلبهم زبائن دائمين</option>
+                        <option value="زبائن جدد">أغلبهم زبائن جدد</option>
+                    </select>
+                </div>
+
+                <!-- س7 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">7. الفئة الأكثر تواجداً حالياً:</label>
+                    <select name="entry.XXXXX7" class="input-field">
+                        <option value="عائلات">عائلات</option>
+                        <option value="شباب">شباب</option>
+                        <option value="موظفون">موظفون</option>
+                    </select>
+                </div>
+
+                <!-- س8 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">8. الميزة التنافسية الأساسية:</label>
+                    <input type="text" name="entry.XXXXX8" class="input-field" placeholder="السعر، الجودة، الموقع؟">
+                </div>
+
+                <!-- س9 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">9. تقييم التواجد الرقمي الحالي (1-5):</label>
+                    <input type="number" name="entry.XXXXX9" min="1" max="5" class="input-field">
+                </div>
+
+                <!-- س10 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">10. المنصة الأكثر تأثيراً:</label>
+                    <select name="entry.XXXXX10" class="input-field">
+                        <option value="تيك توك">تيك توك</option>
+                        <option value="سناب شات">سناب شات</option>
+                        <option value="قوقل ماب">قوقل ماب</option>
+                    </select>
+                </div>
+
+                <!-- س11 -->
                 <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold">5. ملاحظات إضافية حول السمعة الرقمية أو المنافسين:</label>
-                    <textarea name="entry.1362751433" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
+                    <label class="label-gold">11. ملاحظات إضافية حول السمعة الرقمية:</label>
+                    <textarea name="entry.XXXXX11" rows="2" class="input-field" placeholder="مرئياتك..."></textarea>
+                </div>
+
+                <!-- س12 -->
+                <div class="glass-card p-6 md:col-span-2">
+                    <label class="label-gold">12. الخبرات التسويقية السابقة:</label>
+                    <select name="entry.XXXXX12" class="input-field">
+                        <option value="خبرة جيدة">نعم، خبرة جيدة</option>
+                        <option value="تجارب بسيطة">تجارب بسيطة</option>
+                        <option value="لا يوجد">لا يوجد</option>
+                    </select>
                 </div>
 
             </div>
