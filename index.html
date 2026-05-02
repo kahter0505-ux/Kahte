@@ -10,7 +10,6 @@
         .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; height: 100%; transition: 0.3s; }
         .glass-card:hover { border-color: #d29922; }
         .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; appearance: none; }
-        .input-field:focus { border-color: #58a6ff; outline: none; box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1); }
         .label-gold { color: #d29922; font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
     </style>
 </head>
@@ -26,10 +25,10 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- السؤال 1: خيارات -->
+                <!-- س1: خيارات مطابقة تماماً للرابط -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
-                    <select name="entry.1090412351" class="input-field">
+                    <label class="label-gold">1. ما هو المؤشر الذي إذا تحقق بعد 60 يوماً ستعتبر أن تعاوننا ناجحاً ومجدياً مالياً؟</label>
+                    <select name="entry.1090412351" class="input-field" required>
                         <option value="" disabled selected>اختر المؤشر...</option>
                         <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">1- نمو المبيعات اليومية</option>
                         <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">2- استقطاب زبائن جدد</option>
@@ -38,10 +37,10 @@
                     </select>
                 </div>
 
-                <!-- السؤال 2: خيارات -->
+                <!-- س2: خيارات العوائق -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">2. العائق التشغيلي الأكبر حالياً:</label>
-                    <select name="entry.1598282361" class="input-field">
+                    <label class="label-gold">2. ما هو العائق التشغيلي الأكبر الذي يواجه المطعم حالياً؟</label>
+                    <select name="entry.1598282361" class="input-field" required>
                         <option value="" disabled selected>اختر العائق...</option>
                         <option value="1- نقص أو عدم استقرار العمالة.">1- نقص العمالة</option>
                         <option value="2- تذبذب جودة المواد الخام والموردين.">2- جودة المواد</option>
@@ -50,44 +49,21 @@
                     </select>
                 </div>
 
-                <!-- السؤال 10: خيارات (المنصات الرقمية) -->
+                <!-- س3: ميزانية التسويق -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">10. أي منصة رقمية تشعر أنها تجلب زبائن حقيقيين؟</label>
-                    <select name="entry.XXXX10" class="input-field">
-                        <option value="" disabled selected>اختر المنصة...</option>
-                        <option value="1- تيك توك.">1- تيك توك</option>
-                        <option value="2- سناب شات.">2- سناب شات</option>
-                        <option value="3- انستقرام.">3- انستقرام</option>
-                        <option value="4- قوقل ماب (الخرائط والتقييمات).">4- قوقل ماب</option>
-                        <option value="5- لا يوجد تأثير واضح لأي منصة حالياً.">5- لا يوجد تأثير</option>
-                    </select>
+                    <label class="label-gold">3. الميزانية التسويقية التقريبية شهرياً:</label>
+                    <input type="text" name="entry.1116664973" class="input-field" placeholder="مثلاً: 3000 ريال">
                 </div>
 
-                <!-- السؤال 12: خيارات -->
+                <!-- س4: المنتج الأعلى طلباً -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">12. هل لديك تجارب سابقة في التسويق الإلكتروني؟</label>
-                    <select name="entry.XXXX12" class="input-field">
-                        <option value="" disabled selected>اختر تجربتك...</option>
-                        <option value="1- نعم، ولدي خبرة جيدة بالنتائج.">1- نعم، بخبرة جيدة</option>
-                        <option value="2- نعم، تجارب بسيطة وغير مستمرة.">2- تجارب بسيطة</option>
-                        <option value="3- لا، هذه هي التجربة الأولى للمطعم.">3- لا، تجربة أولى</option>
-                    </select>
-                </div>
-
-                <!-- حقول نصية (س3 و س4) -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">3. الميزانية الشهرية للتسويق:</label>
-                    <input type="text" name="entry.1116664973" class="input-field" placeholder="حدد المبلغ التقريبي">
-                </div>
-
-                <div class="glass-card p-6">
-                    <label class="label-gold">4. المنتج الأعلى طلباً (النجم):</label>
+                    <label class="label-gold">4. ما هو المنتج الأعلى طلباً (النجم) حالياً؟</label>
                     <input type="text" name="entry.135246757" class="input-field" placeholder="اسم الصنف">
                 </div>
 
-                <!-- حقل الملاحظات (عرض كامل) -->
+                <!-- س5: ملاحظات السمعة الرقمية -->
                 <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold">11. ملاحظات إضافية حول السمعة الرقمية:</label>
+                    <label class="label-gold">5. ملاحظات إضافية حول السمعة الرقمية أو المنافسين:</label>
                     <textarea name="entry.1362751433" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
                 </div>
 
