@@ -8,7 +8,7 @@
     <style>
         body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, sans-serif; }
         .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; height: 100%; transition: 0.3s; }
-        .glass-card:hover { border-color: #58a6ff; }
+        .glass-card:hover { border-color: #d29922; }
         .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; }
         .input-field:focus { border-color: #58a6ff; outline: none; box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1); }
         .label-gold { color: #d29922; font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
@@ -22,7 +22,6 @@
             <p class="text-gray-400 text-sm italic underline">مطعم ليالي الطيبين - الاستراتيجية الرقمية</p>
         </div>
 
-        <!-- تم ضبط الـ Action والـ Entry IDs بناءً على رابطك -->
         <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -31,22 +30,22 @@
                 <div class="glass-card p-6">
                     <label class="label-gold">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
                     <select name="entry.1090412351" class="input-field">
-                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">1- نمو المبيعات اليومية ودخل الصندوق</option>
-                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">2- استقطاب زبائن جدد من سكان الحي</option>
-                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">3- السيطرة الرقمية وتصدر تطبيقات التوصيل</option>
-                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">4- تنشيط المبيعات في الفترات الراكدة</option>
+                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">نمو المبيعات اليومية</option>
+                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">استقطاب زبائن جدد</option>
+                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">السيطرة الرقمية</option>
+                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">تنشيط الفترات الراكدة</option>
                     </select>
                 </div>
 
                 <!-- س2 -->
                 <div class="glass-card p-6">
                     <label class="label-gold">2. العائق التشغيلي الأكبر حالياً:</label>
-                    <input type="text" name="entry.1598282361" class="input-field" placeholder="مثلاً: نقص عمالة، جودة مواد..">
+                    <input type="text" name="entry.1598282361" class="input-field" placeholder="مثلاً: العمالة أو الجودة">
                 </div>
 
                 <!-- س3 -->
                 <div class="glass-card p-6">
-                    <label class="label-gold">3. الميزانية الشهرية المرصودة للتسويق:</label>
+                    <label class="label-gold">3. الميزانية الشهرية للتسويق:</label>
                     <input type="text" name="entry.1116664973" class="input-field" placeholder="حدد المبلغ التقريبي">
                 </div>
 
@@ -57,14 +56,56 @@
                 </div>
 
                 <!-- س5 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">5. المنافسون في المنطقة:</label>
+                    <input type="text" name="entry.1362751433" class="input-field" placeholder="أبرز المنافسين">
+                </div>
+
+                <!-- س6 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">6. طبيعة الزبائن الحالية:</label>
+                    <input type="text" name="entry.XXXX6" class="input-field" placeholder="دائمين أم جدد">
+                </div>
+
+                <!-- س7 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">7. الفئة الأكثر تواجداً:</label>
+                    <input type="text" name="entry.XXXX7" class="input-field" placeholder="عائلات، شباب، موظفون">
+                </div>
+
+                <!-- س8 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">8. الميزة التنافسية الحالية:</label>
+                    <input type="text" name="entry.XXXX8" class="input-field" placeholder="لماذا يختاركم الزبون؟">
+                </div>
+
+                <!-- س9 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">9. تقييم السوشيال ميديا (1-5):</label>
+                    <input type="number" name="entry.XXXX9" min="1" max="5" class="input-field" placeholder="من 1 إلى 5">
+                </div>
+
+                <!-- س10 -->
+                <div class="glass-card p-6">
+                    <label class="label-gold">10. المنصة الأكثر تأثيراً:</label>
+                    <input type="text" name="entry.XXXX10" class="input-field" placeholder="تيك توك، سناب، قوقل ماب">
+                </div>
+
+                <!-- س11 (عرض كامل) -->
                 <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold">5. ملاحظات إضافية حول السمعة الرقمية:</label>
-                    <textarea name="entry.1362751433" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
+                    <label class="label-gold">11. ملاحظات إضافية حول السمعة الرقمية:</label>
+                    <textarea name="entry.XXXX11" rows="3" class="input-field" placeholder="اكتب مرئياتك هنا..."></textarea>
+                </div>
+
+                <!-- س12 (عرض كامل) -->
+                <div class="glass-card p-6 md:col-span-2">
+                    <label class="label-gold">12. تجارب سابقة في التسويق الإلكتروني:</label>
+                    <input type="text" name="entry.XXXX12" class="input-field" placeholder="أذكر تجاربك السابقة">
                 </div>
 
             </div>
 
-            <div class="mt-12 text-center">
+            <div class="mt-12 text-center pb-20">
                 <button type="submit" class="bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-bold py-4 px-16 rounded-full shadow-2xl transform transition hover:scale-105 text-lg">
                     ارسال كافة البيانات للاعتماد 🚀
                 </button>
