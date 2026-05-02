@@ -3,186 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ليالي الطيبين | استبانة تشخيص الواقع</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>استبانة الطريق للتسويق - ليالي الطيبين</title>
+    <!-- استدعاء مكتبة بوتستراب للتنسيق الاحترافي -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Almarai', sans-serif; background-color: #fcfaf7; color: #4a3f35; }
-        .white-card { background: #ffffff; border: 1px solid #eee6de; box-shadow: 0 4px 20px rgba(74, 63, 53, 0.03); transition: all 0.3s ease; }
-        .white-card:hover { border-color: #d97706; transform: translateY(-2px); }
-        .gold-button { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); color: white; transition: all 0.3s; }
-        .gold-button:hover { opacity: 0.9; transform: scale(1.02); }
-        .input-elegant { background: #fdfdfd; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; width: 100%; color: #4a3f35; outline: none; }
-        .section-title { color: #b45309; border-right: 4px solid #d97706; padding-right: 10px; margin: 25px 0 15px 0; font-weight: bold; }
-        #successSection { display: none; }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form-container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            /* تقليل الارتفاع في الكود ليكون أكثر انسيابية مع التمرير */
+            height: 1500px; 
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .header-section {
+            text-align: center;
+            padding: 30px 0;
+            background: #343a40;
+            color: white;
+            border-radius: 15px 15px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
     </style>
 </head>
-<body class="py-12 px-4 md:px-6">
+<body>
 
-    <div class="max-w-5xl mx-auto">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-[#b45309] mb-3">ليالي الطيبين</h1>
-            <p class="text-gray-500 italic">نحو صناعة تجربة استثنائية وقيمة سوقية رائدة</p>
-        </header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 form-container">
+            <!-- رأس الصفحة -->
+            <div class="header-section">
+                <h2 class="fw-bold">استبانة تشخيص واقع المطعم</h2>
+                <p class="mb-0">مطعم ليالي الطيبين - نحو رؤية تسويقية متكاملة</p>
+            </div>
 
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
-
-        <form id="auditForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-8">
+            <!-- تضمين نموذج قوقل -->
+            <div class="iframe-wrapper">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/viewform?embedded=true" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    جارٍ التحميل…
+                </iframe>
+            </div>
             
-            <!-- القسم الأول: روح المطعم والتشغيل -->
-            <h2 class="section-title text-xl">أولاً: واقع التشغيل والروح العامة</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">1. هل تشرف على المطعم يومياً بنفسك؟</label>
-                    <select name="entry.1276136133" class="input-elegant" required>
-                        <option value="">اختر..</option>
-                        <option value="نعم، دائماً">نعم، دائماً</option>
-                        <option value="أحياناً">أحياناً</option>
-                        <option value="يوجد مدير مسؤول">يوجد مدير مسؤول</option>
-                    </select>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">2. ما هو "الطبق الملك" الأكثر مبيعاً؟</label>
-                    <input type="text" name="entry.1005025151" placeholder="اسم الصنف الأكثر طلباً.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">3. كيف ترى رضا الزبائن عن سرعة الخدمة؟</label>
-                    <select name="entry.1099859393" class="input-elegant" required>
-                        <option value="">اختر..</option>
-                        <option value="ممتاز">ممتاز</option>
-                        <option value="جيد">جيد</option>
-                        <option value="يحتاج تطوير">يحتاج تطوير</option>
-                    </select>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">4. أول شيء يلفت انتباه الزبون عند دخوله؟</label>
-                    <input type="text" name="entry.997508088" placeholder="الديكور، الرائحة، الترحيب.." class="input-elegant" required>
-                </div>
+            <div class="text-center mt-3 text-muted">
+                <small>جميع البيانات المشتركة تعامل بسرية تامة لأغراض التطوير التسويقي.</small>
             </div>
-
-            <!-- القسم الثاني: السوق والمنافسة -->
-            <h2 class="section-title text-xl">ثانياً: المنافسة والمحيط</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">5. من هو "المنافس الجار" الأقوى لك؟</label>
-                    <input type="text" name="entry.1678168052" placeholder="اسم المطعم المنافس.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">6. لماذا يختارك الزبون ويترك غيرك؟</label>
-                    <input type="text" name="entry.212345678" placeholder="الطعم، السعر، الموقع.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">7. الفئة الأكثر زيارة للمطعم حالياً؟</label>
-                    <select name="entry.312345678" class="input-elegant" required>
-                        <option value="">اختر..</option>
-                        <option value="عائلات">عائلات</option>
-                        <option value="شباب">شباب</option>
-                        <option value="موظفون (غداء)">موظفون (غداء)</option>
-                        <option value="تطبيقات توصيل">تطبيقات توصيل</option>
-                    </select>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">8. هل الزبائن "وجوه متكررة" أم جدد؟</label>
-                    <select name="entry.412345678" class="input-elegant" required>
-                        <option value="">اختر..</option>
-                        <option value="أغلبهم دائمون">أغلبهم دائمون</option>
-                        <option value="أغلبهم جدد">أغلبهم جدد</option>
-                        <option value="خليط متوازن">خليط متوازن</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- القسم الثالث: أوقات الذروة والطلبات -->
-            <h2 class="section-title text-xl">ثالثاً: تفاصيل الحركة والطلبات</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">9. متى يشهد المطعم أعلى "زحمة"؟</label>
-                    <input type="text" name="entry.512345678" placeholder="مثلاً: مساءً، الويكند.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">10. نسبة مبيعات تطبيقات التوصيل؟</label>
-                    <input type="text" name="entry.612345678" placeholder="تقريباً كم % من الدخل؟" class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">11. هل يطلب الزبائن أصنافاً غير موجودة؟</label>
-                    <input type="text" name="entry.712345678" placeholder="أصناف مفقودة يطلبها الناس.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">12. هل يتأثر دخلك بتغير الفصول (رمضان، شتاء)؟</label>
-                    <input type="text" name="entry.812345678" placeholder="أكثر المواسم تأثيراً.." class="input-elegant" required>
-                </div>
-            </div>
-
-            <!-- القسم الرابع: التسويق والمستقبل -->
-            <h2 class="section-title text-xl">رابعاً: التسويق والطموح القادم</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">13. المنصة الأكثر تفاعلاً معك حالياً؟</label>
-                    <input type="text" name="entry.912345678" placeholder="تيك توك، قوقل ماب، سناب.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">14. تجربة الإعلان مع "المشاهير" سابقاً؟</label>
-                    <select name="entry.101234567" class="input-elegant" required>
-                        <option value="">اختر..</option>
-                        <option value="ناجحة">ناجحة</option>
-                        <option value="غير مجدية">غير مجدية</option>
-                        <option value="لم أجرب">لم أجرب</option>
-                    </select>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">15. الميزانية الشهرية "البسيطة" للتسويق؟</label>
-                    <select name="entry.111234567" class="input-elegant" required>
-                        <option value="">اختر..</option>
-                        <option value="أقل من 1000">أقل من 1000</option>
-                        <option value="1000 - 5000">1000 - 5000</option>
-                    </select>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">16. هل المظهر الحالي (المنيو/التغليف) فخم؟</label>
-                    <input type="text" name="entry.121234567" placeholder="نعم / يحتاج تحديث.." class="input-elegant" required>
-                </div>
-            </div>
-
-            <div class="space-y-6">
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">17. كيف تستقبل ملاحظات وشكاوى الزبائن؟</label>
-                    <input type="text" name="entry.131234567" placeholder="وجهاً لوجه، قوقل ماب.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl">
-                    <label class="block text-sm font-bold mb-2">18. هل تقدم عروضاً دورية حالياً؟</label>
-                    <input type="text" name="entry.141234567" placeholder="اذكر آخر عرض قمت به.." class="input-elegant" required>
-                </div>
-                <div class="white-card p-6 rounded-xl border-amber-200 bg-amber-50/30">
-                    <label class="block text-sm font-bold mb-2">19. أكثر شيء يضايقك حالياً وتتمنى حله؟ (مهم جداً)</label>
-                    <textarea name="entry.151234567" rows="2" placeholder="مشكلة تشغيلية أو تسويقية.." class="input-elegant" required></textarea>
-                </div>
-                <div class="white-card p-6 rounded-xl border-amber-200 bg-amber-50/30">
-                    <label class="block text-sm font-bold mb-2">20. هدفك الأول في الشهرين القادمين؟</label>
-                    <textarea name="entry.161234567" rows="2" placeholder="زيادة زبائن، شهرة، توصيل.." class="input-elegant" required></textarea>
-                </div>
-            </div>
-
-            <div class="text-center pt-10">
-                <button type="submit" class="gold-button font-bold py-5 px-20 rounded-2xl shadow-xl text-xl italic">
-                    اعتماد البيانات وبدء التحليل 🚀
-                </button>
-            </div>
-        </form>
-
-        <div id="successSection" class="text-center py-32 white-card rounded-3xl border-2 border-amber-100 animate-pulse">
-            <div class="text-7xl mb-6">✨</div>
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">تم استلام رؤيتك بنجاح</h2>
-            <p class="text-gray-500 text-lg italic">جاري العمل على تحويل هذه البيانات إلى واقع ملموس لـ "ليالي الطيبين".</p>
         </div>
     </div>
+</div>
 
-    <script>
-        var submitted = false;
-        function showSuccess() {
-            document.getElementById('auditForm').style.display = 'none';
-            document.getElementById('successSection').style.display = 'block';
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
