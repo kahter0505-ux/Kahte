@@ -3,221 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الطريق للتسويق | نموذج التشخيص</title>
+    <title>الطريق للتسويق | مطعم ليالينا</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 0; }
-        .wrapper { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        body { font-family: 'Tajawal', sans-serif; background: #f0f4f8; color: #1e293b; }
+        .wrapper { max-width: 750px; margin: 40px auto; padding: 0 20px; }
         
-        .header-section { text-align: center; margin-bottom: 50px; }
-        .header-section h1 { font-size: 2.5rem; font-weight: 900; color: #0f172a; margin-bottom: 10px; }
-        .header-section p { font-size: 1.1rem; color: #64748b; font-weight: 500; }
+        /* لون العنوان أعلى وأسفل الصفحة */
+        .main-title { color: #3b82f6; font-weight: 900; } 
 
         .question-card { 
             background: #ffffff; 
             border-radius: 24px; 
-            padding: 35px; 
-            margin-bottom: 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
-            border: 1px solid #e2e8f0; 
+            padding: 30px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            /* الإطار العلوي المطلوب */
+            border-top: 8px solid #4f46e5; 
+            position: relative;
+            overflow: hidden;
         }
 
-        .step-tag { 
+        .step-num { 
             color: #4f46e5; 
             font-weight: 800; 
-            font-size: 0.85rem; 
-            display: block; 
-            margin-bottom: 12px; 
-            letter-spacing: 1px;
+            font-size: 0.9rem; 
+            float: left;
         }
 
-        /* تصحيح المحاذاة وربط الدائرة بالنص */
-        .choice-container {
+        .choice-item {
             display: flex;
             align-items: center;
-            padding: 16px 20px;
-            background: #fdfdfd;
-            border: 2px solid #f1f5f9;
+            padding: 15px 20px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
             border-radius: 16px;
             margin-top: 12px;
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
+            transition: 0.2s ease;
         }
-        .choice-container:hover { border-color: #4f46e5; background: #f5f3ff; }
+        .choice-item:hover { border-color: #4f46e5; background: #f5f3ff; }
         
         input[type="radio"] {
             width: 20px;
             height: 20px;
-            margin-left: 15px; /* المسافة بين الدائرة والنص */
+            margin-left: 15px;
             accent-color: #4f46e5;
             flex-shrink: 0;
         }
 
-        .choice-text { font-size: 1.05rem; font-weight: 500; color: #334155; }
-
-        .text-input {
+        .input-text {
             width: 100%;
-            padding: 16px;
-            border: 2px solid #f1f5f9;
-            border-radius: 16px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
             margin-top: 15px;
-            font-family: inherit;
             outline: none;
-            transition: 0.3s;
         }
-        .text-input:focus { border-color: #4f46e5; background: #fff; }
+        .input-text:focus { border-color: #4f46e5; }
 
-        .btn-send {
-            background: #0f172a;
+        .btn-submit {
+            background: #1e293b;
             color: white;
             width: 100%;
-            padding: 22px;
+            padding: 20px;
             border-radius: 20px;
             font-weight: 800;
-            font-size: 1.25rem;
-            margin: 40px 0 80px 0;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
             transition: 0.3s;
-            cursor: pointer;
-            border: none;
         }
-        .btn-send:hover { background: #000; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .btn-submit:hover { background: #3b82f6; transform: translateY(-3px); }
 
-        #success-screen { display: none; text-align: center; padding: 100px 20px; }
+        #success-msg { display: none; text-align: center; padding: 100px 20px; }
     </style>
 </head>
 <body>
 
-    <div id="main-form" class="wrapper">
-        <header class="header-section">
-            <h1>الطريق للتسويق</h1>
-            <p>تحليل استراتيجي لمطعم ليالينا</p>
+    <div id="form-body" class="wrapper">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl main-title">الطريق للتسويق</h1>
+            <p class="text-gray-500 mt-2 font-bold">تحليل استراتيجي لمطعم ليالينا</p>
         </header>
 
-        <iframe name="hidden_v" style="display:none;" onload="if(submitted){showDone()}"></iframe>
+        <iframe name="hidden_frame" style="display:none;" onload="if(submitted){showSuccess()}"></iframe>
         
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="hidden_v" onsubmit="submitted=true;">
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="hidden_frame" onsubmit="submitted=true;">
             
-            <!-- Q1 -->
+            <!-- 1 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 01</span>
-                <h2 class="text-xl font-bold mb-4">ما هو المؤشر الذي يعتبره دليلاً حقيقياً للنجاح المالي؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required><span class="choice-text">نمو المبيعات اليومية ودخل الصندوق</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة."><span class="choice-text">استقطاب زبائن جدد من سكان المنطقة</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1099859393" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل."><span class="choice-text">السيطرة الرقمية وتصدر نتائج البحث</span></label>
+                <span class="step-num">السؤال 01</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">ما هو المؤشر الذي يعتبره دليلاً حقيقياً للنجاح المالي؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required><span>نمو المبيعات اليومية ودخل الصندوق</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة."><span>استقطاب زبائن جدد من سكان المنطقة</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1099859393" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل."><span>السيطرة الرقمية وتصدر نتائج البحث</span></label>
             </div>
 
-            <!-- Q2 -->
+            <!-- 2 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 02</span>
-                <h2 class="text-xl font-bold mb-4">ما هو العائق التشغيلي الأكبر حالياً؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." required><span class="choice-text">نقص أو عدم استقرار العمالة</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1095069852" value="2- تذبذب جودة المواد الخام والموردين."><span class="choice-text">تذبذب جودة المواد الخام والموردين</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1095069852" value="3- ارتفاع تكاليف التشغيل مقارنة بالربح."><span class="choice-text">ارتفاع تكاليف التشغيل مقارنة بالربح</span></label>
+                <span class="step-num">السؤال 02</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">ما هو العائق التشغيلي الأكبر حالياً؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." required><span>نقص أو عدم استقرار العمالة</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1095069852" value="2- تذبذب جودة المواد الخام والموردين."><span>تذبذب جودة المواد الخام والموردين</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1095069852" value="3- ارتفاع تكاليف التشغيل مقارنة بالربح."><span>ارتفاع تكاليف التشغيل مقارنة بالربح</span></label>
             </div>
 
-            <!-- Q3 -->
+            <!-- 3 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 03</span>
-                <h2 class="text-xl font-bold mb-4">الميزانية التسويقية الشهرية المخطط لها؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.1005025151" value="1- أقل من 2000 ريال." required><span class="choice-text">أقل من 2000 ريال</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال."><span class="choice-text">من 2000 إلى 5000 ريال</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1005025151" value="3- أكثر من 5000 ريال."><span class="choice-text">أكثر من 5000 ريال</span></label>
+                <span class="step-num">السؤال 03</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">الميزانية التسويقية الشهرية المخطط لها؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.1005025151" value="1- أقل من 2000 ريال." required><span>أقل من 2000 ريال</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال."><span>من 2000 إلى 5000 ريال</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1005025151" value="3- أكثر من 5000 ريال."><span>أكثر من 5000 ريال</span></label>
             </div>
 
-            <!-- Q4 -->
+            <!-- 4 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 04</span>
-                <h2 class="text-xl font-bold mb-4">ما هو الطبق "الأيقوني" الأكثر طلباً لديك؟</h2>
-                <input type="text" name="entry.1276136133" class="text-input" placeholder="اسم الطبق..." required>
+                <span class="step-num">السؤال 04</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">ما هو الطبق "الأيقوني" الأكثر طلباً لديك؟</h2>
+                <input type="text" name="entry.1276136133" class="input-text" placeholder="اكتب هنا..." required>
             </div>
 
-            <!-- Q5 -->
+            <!-- 5 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 05</span>
-                <h2 class="text-xl font-bold mb-4">كيف تصف جودة الخدمة الحالية؟</h2>
-                <input type="text" name="entry.997508088" class="text-input" placeholder="رأيك في مستوى الخدمة..." required>
+                <span class="step-num">السؤال 05</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">كيف تصف جودة الخدمة الحالية؟</h2>
+                <input type="text" name="entry.997508088" class="input-text" placeholder="اكتب هنا..." required>
             </div>
 
-            <!-- Q6 -->
+            <!-- 6 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 06</span>
-                <h2 class="text-xl font-bold mb-4">كيف تقيم تواجد المطعم رقمياً اليوم؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.391544910" value="1- ضعيف جداً (أو غير موجود)." required><span class="choice-text">ضعيف جداً أو غير موجود</span></label>
-                <label class="choice-container"><input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم)."><span class="choice-text">متوسط (نشر متقطع وغير منظم)</span></label>
-                <label class="choice-container"><input type="radio" name="entry.391544910" value="3- جيد (يوجد تفاعل ولكن يحتاج احترافية)."><span class="choice-text">جيد ولكن يحتاج احترافية</span></label>
+                <span class="step-num">السؤال 06</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">كيف تقيم تواجد المطعم رقمياً اليوم؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.391544910" value="1- ضعيف جداً (أو غير موجود)." required><span>ضعيف جداً أو غير موجود</span></label>
+                <label class="choice-item"><input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم)."><span>متوسط (نشر متقطع وغير منظم)</span></label>
+                <label class="choice-item"><input type="radio" name="entry.391544910" value="3- جيد (يوجد تفاعل ولكن يحتاج احترافية)."><span>جيد ولكن يحتاج احترافية</span></label>
             </div>
 
-            <!-- Q7 -->
+            <!-- 7 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 07</span>
-                <h2 class="text-xl font-bold mb-4">ما هي المنطقة أو الحي المستهدف بدقة؟</h2>
-                <input type="text" name="entry.456560046" class="text-input" placeholder="اسم الحي أو المنطقة..." required>
+                <span class="step-num">السؤال 07</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">ما هي المنطقة أو الحي المستهدف بدقة؟</h2>
+                <input type="text" name="entry.456560046" class="input-text" placeholder="اكتب هنا..." required>
             </div>
 
-            <!-- Q8 -->
+            <!-- 8 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 08</span>
-                <h2 class="text-xl font-bold mb-4">من هو جمهورك الأساسي؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.1554988620" value="1- أفراد (شباب وموظفون)." required><span class="choice-text">أفراد (شباب وموظفون)</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1554988620" value="2- عوائل (طلبات كبيرة وتجمعات)."><span class="choice-text">عوائل (طلبات كبيرة وتجمعات)</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين."><span class="choice-text">مزيج متساوٍ بين النوعين</span></label>
+                <span class="step-num">السؤال 08</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">من هو جمهورك الأساسي؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.1554988620" value="1- أفراد (شباب وموظفون)." required><span>أفراد (شباب وموظفون)</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1554988620" value="2- عوائل (طلبات كبيرة وتجمعات)."><span>عوائل (تجمعات عائلية)</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين."><span>مزيج بين النوعين</span></label>
             </div>
 
-            <!-- Q9 -->
+            <!-- 9 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 09</span>
-                <h2 class="text-xl font-bold mb-4">ما الذي يميزكم حقيقةً عن المنافسين؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.1678168052" value="1- الجودة العالية والمذاق الأصيل." required><span class="choice-text">الجودة العالية والمذاق الأصيل</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع."><span class="choice-text">السعر المنافس والمناسب للجميع</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1678168052" value="3- سرعة التوصيل والخدمة."><span class="choice-text">سرعة التوصيل والخدمة</span></label>
+                <span class="step-num">السؤال 09</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">ما الذي يميزكم حقيقةً عن المنافسين؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.1678168052" value="1- الجودة العالية والمذاق الأصيل." required><span>الجودة والمذاق الأصيل</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع."><span>السعر المنافس</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1678168052" value="3- سرعة التوصيل والخدمة."><span>سرعة الخدمة</span></label>
             </div>
 
-            <!-- Q10 -->
+            <!-- 10 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 10</span>
-                <h2 class="text-xl font-bold mb-4">الفئة العمرية الأكثر تردداً على المطعم؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.1051615624" value="1- مراهقين وطلاب." required><span class="choice-text">مراهقين وطلاب</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة)."><span class="choice-text">شباب (أفراد ومجموعات)</span></label>
-                <label class="choice-container"><input type="radio" name="entry.1051615624" value="3- كبار سن وعائلات."><span class="choice-text">كبار سن وعائلات</span></label>
+                <span class="step-num">السؤال 10</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">الفئة العمرية الأكثر تردداً؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.1051615624" value="1- مراهقين وطلاب." required><span>مراهقين وطلاب</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة)."><span>شباب (أفراد ومجموعات)</span></label>
+                <label class="choice-item"><input type="radio" name="entry.1051615624" value="3- كبار سن وعائلات."><span>كبار سن وعائلات</span></label>
             </div>
 
-            <!-- Q11 -->
+            <!-- 11 -->
             <div class="question-card">
-                <span class="step-tag">السؤال 11</span>
-                <h2 class="text-xl font-bold mb-4">ما هي المنصة الأكثر تأثيراً على جمهورك؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.745744296" value="1- تيك توك." required><span class="choice-text">تيك توك</span></label>
-                <label class="choice-container"><input type="radio" name="entry.745744296" value="2- سناب شات."><span class="choice-text">سناب شات</span></label>
-                <label class="choice-container"><input type="radio" name="entry.745744296" value="3- انستقرام."><span class="choice-text">انستقرام</span></label>
+                <span class="step-num">السؤال 11</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">ما هي المنصة الأكثر تأثيراً على جمهورك؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.745744296" value="1- تيك توك." required><span>تيك توك</span></label>
+                <label class="choice-item"><input type="radio" name="entry.745744296" value="2- سناب شات."><span>سناب شات</span></label>
+                <label class="choice-item"><input type="radio" name="entry.745744296" value="3- انستقرام."><span>انستقرام</span></label>
             </div>
 
-            <!-- Q12 -->
-            <div class="question-card" style="border-top: 5px solid #4f46e5;">
-                <span class="step-tag">السؤال 12</span>
-                <h2 class="text-xl font-bold mb-4 text-indigo-900">كيف تقيم تجاربك التسويقية الرقمية السابقة؟</h2>
-                <label class="choice-container"><input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." required><span class="choice-text">حققت نتائج ملموسة وواضحة</span></label>
-                <label class="choice-container"><input type="radio" name="entry.834087530" value="2- نعم، ولكن النتائج لم تكن مرضية."><span class="choice-text">تمت التجربة ولكن لم تحقق الأثر المطلوب</span></label>
-                <label class="choice-container"><input type="radio" name="entry.834087530" value="3- لا، ستكون هذه المرة الأولى."><span class="choice-text">لم يسبق لي البدء بحملات احترافية</span></label>
+            <!-- 12 -->
+            <div class="question-card">
+                <span class="step-num">السؤال 12</span>
+                <h2 class="text-xl font-bold mt-6 mb-4">كيف تقيم تجاربك التسويقية السابقة؟</h2>
+                <label class="choice-item"><input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." required><span>حققت نتائج ملموسة</span></label>
+                <label class="choice-item"><input type="radio" name="entry.834087530" value="2- نعم، ولكن النتائج لم تكن مرضية."><span>جربت ولم أحقق الأهداف</span></label>
+                <label class="choice-item"><input type="radio" name="entry.834087530" value="3- لا، ستكون هذه المرة الأولى."><span>المرة الأولى لي</span></label>
             </div>
 
-            <button type="submit" class="btn-send">إرسال البيانات للتحليل الاستراتيجي</button>
+            <button type="submit" class="btn-submit">اعتماد البيانات وإرسالها</button>
         </form>
+
+        <footer class="text-center py-6">
+            <p class="main-title text-sm font-bold">جميع الحقوق محفوظة - الطريق للتسويق 2026</p>
+        </footer>
     </div>
 
-    <div id="success-screen" class="wrapper">
-        <div class="question-card">
-            <h1 class="text-6xl mb-6">✅</h1>
-            <h2 class="text-3xl font-black mb-4">تم الاستلام بنجاح</h2>
-            <p class="text-lg text-gray-500">شكراً لك أستاذ هاشم. تم حفظ بيانات مطعم ليالينا وسنباشر العمل عليها فوراً.</p>
+    <div id="success-msg" class="wrapper">
+        <div class="question-card text-center" style="border-top-color: #10b981;">
+            <h1 class="text-5xl mb-4">✅</h1>
+            <h2 class="text-2xl font-black main-title">تم الإرسال بنجاح</h2>
+            <p class="text-gray-500 mt-2">شكراً لك أستاذ هاشم، سنقوم بمراجعة البيانات فوراً.</p>
         </div>
     </div>
 
     <script>
         var submitted = false;
-        function showDone() {
+        function showSuccess() {
             if(submitted) {
-                document.getElementById('main-form').style.display = 'none';
-                document.getElementById('success-screen').style.display = 'block';
+                document.getElementById('form-body').style.display = 'none';
+                document.getElementById('success-msg').style.display = 'block';
                 window.scrollTo(0,0);
             }
         }
