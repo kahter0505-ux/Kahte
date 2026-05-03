@@ -3,111 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>الطريق للتسويق | تحليل احترافي</title>
+<title>تحليل المطعم</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
 body {
-    font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(135deg,#eef2ff,#f8fafc);
+    font-family: 'Tajawal';
+    background: linear-gradient(135deg,#4f46e5,#7c3aed);
+    color: white;
 }
 
-.wrapper {
-    max-width: 750px;
-    margin: auto;
-    padding: 20px;
-}
-
-.main-title {
-    color: #4f46e5;
-    font-weight: 900;
-}
-
-.question-card {
-    background: white;
-    border-radius: 20px;
+.screen {
+    display: none;
+    height: 100vh;
     padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    border-top: 6px solid #4f46e5;
 }
 
-.choice-item {
+.active {
     display: flex;
-    align-items: center;
-    padding: 15px;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: .2s;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.choice-item:hover {
-    border-color: #4f46e5;
-    background: #eef2ff;
-}
-
-.choice-item.selected {
-    border-color: #4f46e5;
-    background: #eef2ff;
-}
-
-input[type="radio"] {
-    margin-left: 10px;
-    accent-color: #4f46e5;
-}
-
-.input-text {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 2px solid #e5e7eb;
-    margin-top: 10px;
-}
-
-.input-text:focus {
-    border-color: #4f46e5;
-    outline: none;
-}
-
-.btn-submit {
-    width: 100%;
+.choice {
+    background: white;
+    color: black;
     padding: 18px;
     border-radius: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    background: #1e293b;
-    color: white;
-    transition: .3s;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
 }
 
-.btn-submit:hover {
-    background: #4f46e5;
-}
+.choice:hover { background: #e0e7ff; }
 
-.progress-bar {
-    background: #e5e7eb;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+input { display:none; }
 
 .progress {
-    height: 10px;
-    width: 0%;
-    background: #4f46e5;
-    border-radius: 10px;
-    transition: .3s;
+    position: fixed;
+    top:0;
+    right:0;
+    height:5px;
+    background:white;
+    width:0%;
 }
 
-#success {
-    display: none;
-    text-align: center;
-    padding: 100px;
+.textbox {
+    padding:15px;
+    border-radius:10px;
+    color:black;
+    width:100%;
+    margin-top:15px;
+}
+
+.btn {
+    margin-top:20px;
+    background:black;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    cursor:pointer;
 }
 </style>
 
@@ -115,13 +72,7 @@ input[type="radio"] {
 
 <body>
 
-<div class="wrapper" id="formBody">
-
-<h1 class="text-3xl text-center main-title mb-6">تحليل المطعم التسويقي</h1>
-
-<div class="progress-bar">
-    <div id="progress" class="progress"></div>
-</div>
+<div class="progress" id="progress"></div>
 
 <iframe name="hidden_iframe" style="display:none;" onload="done()"></iframe>
 
@@ -131,130 +82,187 @@ method="POST"
 target="hidden_iframe">
 
 <!-- 1 -->
-<div class="question-card">
-<p>ما هو المؤشر الحقيقي للنجاح؟</p>
-
-<label class="choice-item">
-<input type="radio" name="entry.1099859393" required>
-نمو المبيعات
+<div class="screen active">
+<h2>ما هو المؤشر الحقيقي للنجاح؟</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required>نمو المبيعات
 </label>
-
-<label class="choice-item">
-<input type="radio" name="entry.1099859393">
-عملاء جدد
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">عملاء جدد
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1099859393" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">السيطرة الرقمية
 </label>
 </div>
 
 <!-- 2 -->
-<div class="question-card">
-<p>العائق الأكبر؟</p>
-
-<label class="choice-item">
-<input type="radio" name="entry.1095069852" required>
-الموردين
+<div class="screen">
+<h2>العائق الأكبر؟</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." required>العمالة
 </label>
-
-<label class="choice-item">
-<input type="radio" name="entry.1095069852">
-التكاليف
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1095069852" value="2- تذبذب جودة المواد الخام والموردين.">الموردين
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1095069852" value="3- ارتفاع تكاليف التشغيل مقارنة بالربح.">التكاليف
 </label>
 </div>
 
 <!-- 3 -->
-<div class="question-card">
-<p>الميزانية؟</p>
-
-<label class="choice-item">
-<input type="radio" name="entry.1005025151" required>
-أقل من 2000
+<div class="screen">
+<h2>الميزانية؟</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1005025151" value="1- أقل من 2000 ريال." required>أقل من 2000
 </label>
-
-<label class="choice-item">
-<input type="radio" name="entry.1005025151">
-2000 - 5000
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال.">2000 - 5000
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1005025151" value="3- أكثر من 5000 ريال.">أكثر من 5000
 </label>
 </div>
 
 <!-- 4 -->
-<div class="question-card">
-<p>نجم المطعم</p>
-<input type="text" name="entry.1276136133" class="input-text" required>
+<div class="screen">
+<h2>نجم المطعم</h2>
+<input class="textbox" name="entry.1276136133" required>
+<div class="btn" onclick="next()">التالي</div>
 </div>
 
-<!-- 5 (تم تصحيحها) -->
-<div class="question-card">
-<p>جودة الخدمة</p>
-
-<label class="choice-item">
-<input type="radio" name="entry.997508088" value="ضعيفة" required> ضعيفة
+<!-- 5 -->
+<div class="screen">
+<h2>جودة الخدمة</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.997508088" value="ضعيفة" required>ضعيفة
 </label>
-
-<label class="choice-item">
-<input type="radio" name="entry.997508088" value="جيدة"> جيدة
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.997508088" value="جيدة">جيدة
 </label>
-
-<label class="choice-item">
-<input type="radio" name="entry.997508088" value="ممتازة"> ممتازة
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.997508088" value="جيد جداً">جيد جداً
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.997508088" value="ممتازة">ممتازة
 </label>
 </div>
 
-<button id="submitBtn" disabled class="btn-submit opacity-50">
-إرسال البيانات
-</button>
+<!-- 6 -->
+<div class="screen">
+<h2>الحضور الرقمي</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.391544910" value="1- ضعيف جداً (أو غير موجود)." required>ضعيف
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم).">متوسط
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.391544910" value="3- جيد (يوجد تفاعل ولكن يحتاج احترافية).">جيد
+</label>
+</div>
+
+<!-- 7 -->
+<div class="screen">
+<h2>الحي المستهدف</h2>
+<input class="textbox" name="entry.456560046" required>
+<div class="btn" onclick="next()">التالي</div>
+</div>
+
+<!-- 8 -->
+<div class="screen">
+<h2>الجمهور</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1554988620" value="1- أفراد (شباب وموظفون)." required>أفراد
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1554988620" value="2- عوائل (طلبات كبيرة وتجمعات).">عوائل
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين.">مزيج
+</label>
+</div>
+
+<!-- 9 -->
+<div class="screen">
+<h2>الميزة التنافسية</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1678168052" value="1- الجودة العالية والمذاق الأصيل." required>الجودة
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع.">السعر
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1678168052" value="3- سرعة التوصيل والخدمة.">السرعة
+</label>
+</div>
+
+<!-- 10 -->
+<div class="screen">
+<h2>الفئة العمرية</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1051615624" value="1- مراهقين وطلاب." required>طلاب
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة).">شباب
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.1051615624" value="3- كبار سن وعائلات.">عوائل
+</label>
+</div>
+
+<!-- 11 -->
+<div class="screen">
+<h2>أفضل منصة</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.745744296" value="1- تيك توك." required>تيك توك
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.745744296" value="2- سناب شات.">سناب
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.745744296" value="3- انستقرام.">انستقرام
+</label>
+</div>
+
+<!-- 12 -->
+<div class="screen">
+<h2>التجارب السابقة</h2>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." required>ناجحة
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.834087530" value="2- نعم، ولكن النتائج لم تكن مرضية.">ضعيفة
+</label>
+<label class="choice" onclick="next(this)">
+<input type="radio" name="entry.834087530" value="3- لا، ستكون هذه المرة الأولى.">أول مرة
+</label>
+</div>
+
+<!-- إرسال -->
+<div class="screen">
+<h2>إرسال النموذج</h2>
+<div class="btn" onclick="document.getElementById('form').submit()">إرسال</div>
+</div>
 
 </form>
 
-</div>
-
-<div id="success">
-<h1 class="text-4xl">✅ تم الإرسال</h1>
-<p>شكراً لك</p>
-</div>
-
 <script>
+let current = 0;
+let screens = document.querySelectorAll(".screen");
 
-let form = document.getElementById("form");
-let btn = document.getElementById("submitBtn");
-let progress = document.getElementById("progress");
-
-let total = 5;
-
-form.addEventListener("change", () => {
-
-    let filled = 0;
-
-    document.querySelectorAll("input[required]").forEach(el => {
-        if(el.type === "radio"){
-            let name = el.name;
-            if(document.querySelector(`input[name="${name}"]:checked`)){
-                filled++;
-            }
-        } else if(el.value){
-            filled++;
-        }
-    });
-
-    progress.style.width = (filled / total) * 100 + "%";
-
-    if(form.checkValidity()){
-        btn.disabled = false;
-        btn.classList.remove("opacity-50");
+function next(el){
+    if(el){ el.querySelector("input").checked = true; }
+    screens[current].classList.remove("active");
+    current++;
+    if(current < screens.length){
+        screens[current].classList.add("active");
+        document.getElementById("progress").style.width = (current/screens.length)*100+"%";
     }
-});
-
-document.querySelectorAll('.choice-item').forEach(item => {
-    item.addEventListener('click', () => {
-        let group = item.parentElement;
-        group.querySelectorAll('.choice-item').forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-    });
-});
-
-function done(){
-    document.getElementById("formBody").style.display = "none";
-    document.getElementById("success").style.display = "block";
 }
 
+function done(){
+    document.body.innerHTML="<h1 style='text-align:center;margin-top:40%'>✅ تم الإرسال</h1>";
+}
 </script>
 
 </body>
