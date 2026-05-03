@@ -2,59 +2,112 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>تقييم المطعم</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الطريق للتسويق | تحليل احترافي</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 body {
-    font-family: Tahoma;
-    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg,#eef2ff,#f8fafc);
+}
+
+.wrapper {
+    max-width: 750px;
+    margin: auto;
     padding: 20px;
 }
 
-.container {
-    max-width: 750px;
-    margin: auto;
-    background: #fff;
+.main-title {
+    color: #4f46e5;
+    font-weight: 900;
+}
+
+.question-card {
+    background: white;
+    border-radius: 20px;
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-h2 {
-    text-align: center;
     margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    border-top: 6px solid #4f46e5;
 }
 
-.question {
+.choice-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.choice-item:hover {
+    border-color: #4f46e5;
+    background: #eef2ff;
+}
+
+.choice-item.selected {
+    border-color: #4f46e5;
+    background: #eef2ff;
+}
+
+input[type="radio"] {
+    margin-left: 10px;
+    accent-color: #4f46e5;
+}
+
+.input-text {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #e5e7eb;
+    margin-top: 10px;
+}
+
+.input-text:focus {
+    border-color: #4f46e5;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #1e293b;
+    color: white;
+    transition: .3s;
+}
+
+.btn-submit:hover {
+    background: #4f46e5;
+}
+
+.progress-bar {
+    background: #e5e7eb;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin: 6px 0;
-    cursor: pointer;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    background: #27ae60;
-    color: white;
-    border: none;
+.progress {
+    height: 10px;
+    width: 0%;
+    background: #4f46e5;
     border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
+    transition: .3s;
 }
 
-button:hover {
-    background: #1e8449;
+#success {
+    display: none;
+    text-align: center;
+    padding: 100px;
 }
 </style>
 
@@ -62,47 +115,147 @@ button:hover {
 
 <body>
 
-<div class="container">
-<h2>نموذج تقييم المطعم</h2>
+<div class="wrapper" id="formBody">
 
-<form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="_blank">
+<h1 class="text-3xl text-center main-title mb-6">تحليل المطعم التسويقي</h1>
 
-<!-- الميزانية -->
-<div class="question">
-<p>ما هي الميزانية الشهرية للتسويق؟</p>
-<label><input type="radio" name="entry.1005025151" value="أقل من 2000 ريال"> أقل من 2000</label>
-<label><input type="radio" name="entry.1005025151" value="من 2000 إلى 5000 ريال"> 2000 - 5000</label>
-<label><input type="radio" name="entry.1005025151" value="أكثر من 5000 ريال"> أكثر من 5000</label>
+<div class="progress-bar">
+    <div id="progress" class="progress"></div>
 </div>
 
-<!-- نجم المطعم -->
-<div class="question">
-<p>ما هو الصنف الذي يعتبرونه "نجم المطعم"؟</p>
-<input type="text" name="entry.1276136133" placeholder="اكتب الإجابة هنا">
+<iframe name="hidden_iframe" style="display:none;" onload="done()"></iframe>
+
+<form id="form"
+action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse"
+method="POST"
+target="hidden_iframe">
+
+<!-- 1 -->
+<div class="question-card">
+<p>ما هو المؤشر الحقيقي للنجاح؟</p>
+
+<label class="choice-item">
+<input type="radio" name="entry.1099859393" required>
+نمو المبيعات
+</label>
+
+<label class="choice-item">
+<input type="radio" name="entry.1099859393">
+عملاء جدد
+</label>
 </div>
 
-<!-- التقييم -->
-<div class="question">
-<p>تقييم خدمة العملاء:</p>
-<label><input type="radio" name="entry.997508088" value="ضعيفة"> ضعيفة</label>
-<label><input type="radio" name="entry.997508088" value="جيدة"> جيدة</label>
-<label><input type="radio" name="entry.997508088" value="جيد جداً"> جيد جداً</label>
-<label><input type="radio" name="entry.997508088" value="ممتازة"> ممتازة</label>
+<!-- 2 -->
+<div class="question-card">
+<p>العائق الأكبر؟</p>
+
+<label class="choice-item">
+<input type="radio" name="entry.1095069852" required>
+الموردين
+</label>
+
+<label class="choice-item">
+<input type="radio" name="entry.1095069852">
+التكاليف
+</label>
 </div>
 
-<!-- الحضور الرقمي -->
-<div class="question">
-<p>كيف تصف حضورك في السوشيال ميديا؟</p>
-<label><input type="radio" name="entry.391544910" value="ضعيف"> ضعيف</label>
-<label><input type="radio" name="entry.391544910" value="متوسط"> متوسط</label>
-<label><input type="radio" name="entry.391544910" value="قوي"> قوي</label>
+<!-- 3 -->
+<div class="question-card">
+<p>الميزانية؟</p>
+
+<label class="choice-item">
+<input type="radio" name="entry.1005025151" required>
+أقل من 2000
+</label>
+
+<label class="choice-item">
+<input type="radio" name="entry.1005025151">
+2000 - 5000
+</label>
 </div>
 
-<!-- زر الإرسال -->
-<button type="submit">إرسال الإجابات</button>
+<!-- 4 -->
+<div class="question-card">
+<p>نجم المطعم</p>
+<input type="text" name="entry.1276136133" class="input-text" required>
+</div>
+
+<!-- 5 (تم تصحيحها) -->
+<div class="question-card">
+<p>جودة الخدمة</p>
+
+<label class="choice-item">
+<input type="radio" name="entry.997508088" value="ضعيفة" required> ضعيفة
+</label>
+
+<label class="choice-item">
+<input type="radio" name="entry.997508088" value="جيدة"> جيدة
+</label>
+
+<label class="choice-item">
+<input type="radio" name="entry.997508088" value="ممتازة"> ممتازة
+</label>
+</div>
+
+<button id="submitBtn" disabled class="btn-submit opacity-50">
+إرسال البيانات
+</button>
 
 </form>
+
 </div>
+
+<div id="success">
+<h1 class="text-4xl">✅ تم الإرسال</h1>
+<p>شكراً لك</p>
+</div>
+
+<script>
+
+let form = document.getElementById("form");
+let btn = document.getElementById("submitBtn");
+let progress = document.getElementById("progress");
+
+let total = 5;
+
+form.addEventListener("change", () => {
+
+    let filled = 0;
+
+    document.querySelectorAll("input[required]").forEach(el => {
+        if(el.type === "radio"){
+            let name = el.name;
+            if(document.querySelector(`input[name="${name}"]:checked`)){
+                filled++;
+            }
+        } else if(el.value){
+            filled++;
+        }
+    });
+
+    progress.style.width = (filled / total) * 100 + "%";
+
+    if(form.checkValidity()){
+        btn.disabled = false;
+        btn.classList.remove("opacity-50");
+    }
+});
+
+document.querySelectorAll('.choice-item').forEach(item => {
+    item.addEventListener('click', () => {
+        let group = item.parentElement;
+        group.querySelectorAll('.choice-item').forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+    });
+});
+
+function done(){
+    document.getElementById("formBody").style.display = "none";
+    document.getElementById("success").style.display = "block";
+}
+
+</script>
 
 </body>
 </html>
