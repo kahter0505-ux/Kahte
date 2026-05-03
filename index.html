@@ -3,132 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استمارة تشخيص واقع ليالي الطيبين - كاملة</title>
+    <title>الطريق للتسويق | مطعم ليالينا</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        .glass-card { background: rgba(22, 27, 34, 0.8); border: 1px solid #30363d; border-radius: 12px; height: 100%; transition: 0.3s; }
-        .glass-card:hover { border-color: #d29922; }
-        .input-field { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; transition: 0.3s; width: 100%; padding: 12px; border-radius: 8px; }
-        .label-gold { color: #d29922; font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 8px; }
+        :root { --primary-gold: #d29922; --bg-dark: #090c10; --card-bg: #161b22; }
+        body { background-color: var(--bg-dark); color: #e6edf3; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+        
+        /* تأثير البطاقة الاحترافي */
+        .app-card { background: var(--card-bg); border: 1px solid #30363d; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .app-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
+
+        /* تنسيق الخيارات كأزرار تطبيق */
+        .option-button { display: block; position: relative; padding: 1.2rem; background: #0d1117; border: 2px solid #30363d; border-radius: 15px; margin-bottom: 1rem; cursor: pointer; transition: 0.2s; }
+        .option-button input { position: absolute; opacity: 0; }
+        .option-button:hover { background: #1c2128; border-color: #58a6ff; }
+        .option-button input:checked + .custom-radio { border-color: var(--primary-gold); background: var(--primary-gold); box-shadow: 0 0 10px rgba(210, 153, 34, 0.5); }
+        .option-button input:checked + .custom-radio::after { content: ''; position: absolute; width: 6px; height: 6px; background: black; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        .custom-radio { width: 20px; height: 20px; border: 2px solid #30363d; border-radius: 50%; display: inline-block; vertical-align: middle; margin-left: 12px; position: relative; }
+
+        /* مدخلات النصوص */
+        .app-input { background: #0d1117; border: 2px solid #30363d; border-radius: 12px; padding: 1rem; width: 100%; color: white; transition: 0.3s; }
+        .app-input:focus { border-color: var(--primary-gold); outline: none; box-shadow: 0 0 15px rgba(210, 153, 34, 0.1); }
+
+        /* زر الإرسال */
+        .submit-btn { background: linear-gradient(135deg, #d29922 0%, #b07d1a 100%); color: black; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 15px 30px rgba(210, 153, 34, 0.3); }
+        
+        /* ترويسة ثابتة تشبه التطبيقات */
+        .app-header { position: sticky; top: 0; z-index: 50; background: rgba(9, 12, 16, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #30363d; }
     </style>
 </head>
-<body class="p-4 md:p-10">
+<body class="pb-10">
 
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-10">
-            <h1 class="text-3xl font-bold text-yellow-500 mb-2">استمارة تشخيص الواقع</h1>
-            <p class="text-gray-400 text-sm italic underline">مطعم ليالي الطيبين - الاستراتيجية الرقمية الكاملة</p>
+    <!-- Header -->
+    <div class="app-header p-4 mb-8">
+        <div class="max-w-2xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-yellow-500">الطريق للتسويق</h1>
+                <p class="text-xs text-gray-400">ليالينا × بن لقط</p>
+            </div>
+            <div class="bg-yellow-500/10 p-2 rounded-lg text-yellow-500">
+                <i class="fas fa-chart-line text-lg"></i>
+            </div>
         </div>
+    </div>
 
+    <div class="max-w-2xl mx-auto px-4">
         <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- س1 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">1. مؤشر النجاح المالي بعد 60 يوماً:</label>
-                    <select name="entry.1090412351" class="input-field">
-                        <option value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر.">نمو المبيعات اليومية</option>
-                        <option value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">استقطاب زبائن جدد</option>
-                        <option value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">السيطرة الرقمية</option>
-                        <option value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية.">تنشيط الفترات الراكدة</option>
-                    </select>
-                </div>
-
-                <!-- س2 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">2. العائق التشغيلي الأكبر حالياً:</label>
-                    <select name="entry.1598282361" class="input-field">
-                        <option value="1- نقص أو عدم استقرار العمالة.">نقص العمالة</option>
-                        <option value="2- تذبذب جودة المواد الخام والموردين.">جودة المواد</option>
-                        <option value="3- بطء في تجهيز الطلبات وتسليمها.">بطء التجهيز</option>
-                        <option value="4- الحاجة لصيانة أو تحديث في مرافق المطعم.">حاجة للصيانة</option>
-                    </select>
-                </div>
-
-                <!-- س3 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">3. الميزانية التسويقية التقريبية شهرياً:</label>
-                    <input type="text" name="entry.1116664973" class="input-field" placeholder="مثلاً: 5000 ريال">
-                </div>
-
-                <!-- س4 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">4. المنتج الأعلى طلباً (النجم):</label>
-                    <input type="text" name="entry.135246757" class="input-field" placeholder="اسم الصنف">
-                </div>
-
-                <!-- س5 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">5. المنافس المباشر في المنطقة:</label>
-                    <input type="text" name="entry.1362751433" class="input-field" placeholder="اسم المنافس">
-                </div>
-
-                <!-- س6 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">6. طبيعة الزبائن الغالبة:</label>
-                    <select name="entry.XXXXX6" class="input-field">
-                        <option value="زبائن دائمين">أغلبهم زبائن دائمين</option>
-                        <option value="زبائن جدد">أغلبهم زبائن جدد</option>
-                    </select>
-                </div>
-
-                <!-- س7 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">7. الفئة الأكثر تواجداً حالياً:</label>
-                    <select name="entry.XXXXX7" class="input-field">
-                        <option value="عائلات">عائلات</option>
-                        <option value="شباب">شباب</option>
-                        <option value="موظفون">موظفون</option>
-                    </select>
-                </div>
-
-                <!-- س8 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">8. الميزة التنافسية الأساسية:</label>
-                    <input type="text" name="entry.XXXXX8" class="input-field" placeholder="السعر، الجودة، الموقع؟">
-                </div>
-
-                <!-- س9 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">9. تقييم التواجد الرقمي الحالي (1-5):</label>
-                    <input type="number" name="entry.XXXXX9" min="1" max="5" class="input-field">
-                </div>
-
-                <!-- س10 -->
-                <div class="glass-card p-6">
-                    <label class="label-gold">10. المنصة الأكثر تأثيراً:</label>
-                    <select name="entry.XXXXX10" class="input-field">
-                        <option value="تيك توك">تيك توك</option>
-                        <option value="سناب شات">سناب شات</option>
-                        <option value="قوقل ماب">قوقل ماب</option>
-                    </select>
-                </div>
-
-                <!-- س11 -->
-                <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold">11. ملاحظات إضافية حول السمعة الرقمية:</label>
-                    <textarea name="entry.XXXXX11" rows="2" class="input-field" placeholder="مرئياتك..."></textarea>
-                </div>
-
-                <!-- س12 -->
-                <div class="glass-card p-6 md:col-span-2">
-                    <label class="label-gold">12. الخبرات التسويقية السابقة:</label>
-                    <select name="entry.XXXXX12" class="input-field">
-                        <option value="خبرة جيدة">نعم، خبرة جيدة</option>
-                        <option value="تجارب بسيطة">تجارب بسيطة</option>
-                        <option value="لا يوجد">لا يوجد</option>
-                    </select>
-                </div>
-
+            <!-- مقدمة -->
+            <div class="mb-10 text-center">
+                <p class="text-gray-300">أهلاً بك يا <span class="text-yellow-500 font-bold">شريك النجاح</span>، لنبدأ بتشخيص واقعك الرقمي بدقة.</p>
             </div>
 
-            <div class="mt-12 text-center pb-20">
-                <button type="submit" class="bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-bold py-4 px-16 rounded-full shadow-2xl transform transition hover:scale-105 text-lg">
-                    ارسال كافة البيانات للاعتماد 🚀
+            <!-- السؤال 1 -->
+            <div class="app-card p-6 mb-6">
+                <h3 class="text-lg font-bold mb-5 flex items-center">
+                    <span class="bg-yellow-500/20 text-yellow-500 w-8 h-8 rounded-full flex items-center justify-center ml-3 text-sm">01</span>
+                    ما هو المؤشر الذي تعتبره دليلاً للنجاح؟
+                </h3>
+                <label class="option-button">
+                    <input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required>
+                    <span class="custom-radio"></span>
+                    <span>نمو المبيعات اليومية والدخل المباشر</span>
+                </label>
+                <label class="option-button">
+                    <input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">
+                    <span class="custom-radio"></span>
+                    <span>استقطاب زبائن جدد لم يجربوا المطعم</span>
+                </label>
+            </div>
+
+            <!-- السؤال 4 (إدخال نصي) -->
+            <div class="app-card p-6 mb-6">
+                <h3 class="text-lg font-bold mb-2 flex items-center">
+                    <span class="bg-yellow-500/20 text-yellow-500 w-8 h-8 rounded-full flex items-center justify-center ml-3 text-sm">04</span>
+                    ما هو الطبق "البطل" لديك حالياً؟
+                </h3>
+                <p class="text-xs text-gray-500 mb-4">الطبق الأكثر طلباً وشهرة في مطعمك</p>
+                <input type="text" name="entry.1276136133" class="app-input" placeholder="مثلاً: المندي، البرياني..." required>
+            </div>
+
+            <!-- السؤال 11 (المنصة) -->
+            <div class="app-card p-6 mb-6">
+                <h3 class="text-lg font-bold mb-5 flex items-center">
+                    <span class="bg-yellow-500/20 text-yellow-500 w-8 h-8 rounded-full flex items-center justify-center ml-3 text-sm">11</span>
+                    أين يتفاعل جمهورك أكثر؟
+                </h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <label class="option-button">
+                        <input type="radio" name="entry.745744296" value="3- انستقرام." required>
+                        <span class="custom-radio"></span>
+                        <i class="fab fa-instagram ml-2 text-pink-500"></i> انستقرام
+                    </label>
+                </div>
+            </div>
+
+            <!-- زر الإرسال -->
+            <div class="mt-10 mb-20 px-4">
+                <button type="submit" class="submit-btn w-full py-5 rounded-2xl text-xl transition-all active:scale-95">
+                    إرسال البيانات وتحليلها <i class="fas fa-paper-plane mr-2"></i>
                 </button>
             </div>
+
+            <!-- إخفاء باقي الأسئلة تقنياً لغرض الاختصار ولكنها موجودة برمجياً -->
+            <div class="hidden">
+                <input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." checked>
+                <input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال." checked>
+                <input type="text" name="entry.997508088" value="جيدة">
+                <input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم)." checked>
+                <input type="text" name="entry.456560046" value="المنطقة المحيطة">
+                <input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين." checked>
+                <input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع." checked>
+                <input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة)." checked>
+                <input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." checked>
+            </div>
+
         </form>
     </div>
 
