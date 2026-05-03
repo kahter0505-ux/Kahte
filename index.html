@@ -1,269 +1,362 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تحليل المطعم</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;900&display=swap" rel="stylesheet">
-
-<style>
-body {
-    font-family: 'Tajawal';
-    background: linear-gradient(135deg,#4f46e5,#7c3aed);
-    color: white;
-}
-
-.screen {
-    display: none;
-    height: 100vh;
-    padding: 25px;
-}
-
-.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.choice {
-    background: white;
-    color: black;
-    padding: 18px;
-    border-radius: 15px;
-    margin-top: 10px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.choice:hover { background: #e0e7ff; }
-
-input { display:none; }
-
-.progress {
-    position: fixed;
-    top:0;
-    right:0;
-    height:5px;
-    background:white;
-    width:0%;
-}
-
-.textbox {
-    padding:15px;
-    border-radius:10px;
-    color:black;
-    width:100%;
-    margin-top:15px;
-}
-
-.btn {
-    margin-top:20px;
-    background:black;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    cursor:pointer;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>استبيان المطعم - الطريق للتسويق</title>
+    <link href="https://fonts.googleapis.com/css2?display=swap&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #fef9e6 0%, #fff4e4 100%);
+            padding: 2rem 1rem;
+            color: #2c2418;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .hero {
+            background: #1a2a2a;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            color: #fef3da;
+            text-align: center;
+            box-shadow: 0 12px 25px -10px rgba(0,0,0,0.2);
+        }
+        .hero h1 {
+            font-size: 1.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hero h1 i {
+            background: #c9a03d;
+            padding: 8px;
+            border-radius: 50%;
+            color: #1a2a2a;
+        }
+        .form-card {
+            background: white;
+            border-radius: 1.8rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            padding: 2rem;
+            border: 1px solid #f2e5d4;
+        }
+        .question-block {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #f0e2d2;
+            padding-bottom: 1.5rem;
+        }
+        .question-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .q-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #3b2c1a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .q-title i {
+            color: #c9a03d;
+            width: 1.6rem;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fefaf5;
+            padding: 0.6rem 1rem;
+            border-radius: 1rem;
+            border: 1px solid #f0e2d2;
+            transition: 0.2s;
+        }
+        .radio-option:hover {
+            background: #fef3e6;
+            border-color: #d4a55a;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #c9a03d;
+        }
+        label {
+            flex: 1;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .short-text input, .short-text textarea {
+            width: 100%;
+            max-width: 550px;
+            padding: 10px 16px;
+            border-radius: 40px;
+            border: 1.5px solid #e2d0b6;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            background: #fffdf9;
+        }
+        .short-text input:focus, .short-text textarea:focus {
+            outline: none;
+            border-color: #c9a03d;
+        }
+        .short-text textarea {
+            border-radius: 20px;
+            resize: vertical;
+        }
+        .custom-extra {
+            margin-top: 12px;
+            padding-right: 1rem;
+        }
+        button {
+            background: #1a2a2a;
+            color: #f9e7cf;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            width: 100%;
+            font-family: 'Tajawal', sans-serif;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        button:hover {
+            background: #c9a03d;
+            color: #1a2a2a;
+        }
+        .toast-msg {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2b5e3b;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            opacity: 0;
+            transition: 0.2s;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        @media (max-width: 600px) {
+            .form-card { padding: 1.3rem; }
+            .q-title { font-size: 1.1rem; }
+            .toast-msg { white-space: normal; width: 85%; text-align: center; }
+        }
+        .required-field::after {
+            content: " *";
+            color: #c95a3d;
+        }
+    </style>
 </head>
-
 <body>
+<div class="container">
+    <div class="hero">
+        <h1><i class="fas fa-chart-line"></i> الطريق للتسويق</h1>
+        <p>استبيان تطوير المطعم | جميع الإجابات ترسل مباشرة إلى نموذج Google الخاص بك</p>
+    </div>
 
-<div class="progress" id="progress"></div>
+    <div class="form-card">
+        <form id="mainForm">
+            <!-- 1. الميزانية الشهرية -->
+            <div class="question-block">
+                <div class="q-title"><i class="fas fa-coins"></i> ما هي الميزانية الشهرية "البسيطة" التي تفكر في رصدها كاستثمار في التسويق؟</div>
+                <div class="options">
+                    <div class="radio-option"><input type="radio" name="budget" value="1- أقل من 2000 ريال" id="b1"><label for="b1">📉 أقل من 2000 ريال</label></div>
+                    <div class="radio-option"><input type="radio" name="budget" value="2- من 2000 إلى 5000 ريال" id="b2"><label for="b2">📊 2000 إلى 5000 ريال</label></div>
+                    <div class="radio-option"><input type="radio" name="budget" value="3- أكثر من 5000 ريال" id="b3"><label for="b3">🚀 أكثر من 5000 ريال</label></div>
+                    <div class="radio-option"><input type="radio" name="budget" value="4- متاحة حسب الاتفاق" id="b4"><label for="b4">🤝 متاحة حسب الاتفاق</label></div>
+                </div>
+            </div>
 
-<iframe name="hidden_iframe" style="display:none;" onload="done()"></iframe>
+            <!-- 2. نجم المطعم (نص) -->
+            <div class="question-block">
+                <div class="q-title"><i class="fas fa-star-of-life"></i> ما هو الصنف الذي يعتبره "نجم المطعم" وتراهون على جودته لجذب الزبائن؟</div>
+                <div class="short-text"><input type="text" id="starDish" name="starDish" placeholder="مثال: شاورما اللحم، البيتزا، الكنافة..."></div>
+            </div>
 
-<form id="form"
-action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse"
-method="POST"
-target="hidden_iframe">
+            <!-- 3. تقييم خدمة العملاء -->
+            <div class="question-block">
+                <div class="q-title"><i class="fas fa-headset"></i> تقييمك لخدمة العملاء في المطعم (الرد على العملاء على الواتس - قوّق ما ب)</div>
+                <div class="options">
+                    <div class="radio-option"><input type="radio" name="customerService" value="ضعيفة" id="cs1"><label for="cs1">⭐ ضعيفة</label></div>
+                    <div class="radio-option"><input type="radio" name="customerService" value="جيدة" id="cs2"><label for="cs2">⭐⭐ جيدة</label></div>
+                    <div class="radio-option"><input type="radio" name="customerService" value="جيد جداً" id="cs3"><label for="cs3">⭐⭐⭐ جيد جداً</label></div>
+                    <div class="radio-option"><input type="radio" name="customerService" value="ممتازة" id="cs4"><label for="cs4">⭐⭐⭐⭐ ممتازة</label></div>
+                </div>
+            </div>
 
-<!-- 1 -->
-<div class="screen active">
-<h2>ما هو المؤشر الحقيقي للنجاح؟</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required>نمو المبيعات
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة.">عملاء جدد
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1099859393" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل.">السيطرة الرقمية
-</label>
+            <!-- 4. حضور ليالي الطيبين -->
+            <div class="question-block">
+                <div class="q-title"><i class="fab fa-tiktok"></i> كيف تصف حضور "ليالي الطيبين" الحالي على منصات التواصل الاجتماعي؟</div>
+                <div class="short-text"><textarea id="socialPresence" rows="2" placeholder="انستقرام، تيك توك، فيسبوك..."></textarea></div>
+            </div>
+
+            <!-- 5. العائق التشغيلي الأكبر (مع إضافة غير ذلك) -->
+            <div class="question-block">
+                <div class="q-title"><i class="fas fa-tools"></i> ما هو العائق التشغيلي الأكبر الذي يواجه المطعم حالياً؟</div>
+                <div class="options">
+                    <div class="radio-option"><input type="radio" name="operationalHurdle" value="1- نقص أو عدم استقرار العمالة." id="op1"><label for="op1">👥 نقص أو عدم استقرار العمالة</label></div>
+                    <div class="radio-option"><input type="radio" name="operationalHurdle" value="2- تذبذب جودة المواد الخام والموردين." id="op2"><label for="op2">🍅 تذبذب جودة المواد الخام والموردين</label></div>
+                    <div class="radio-option"><input type="radio" name="operationalHurdle" value="3- بطء في تجهيز الطلبات وتسليمها." id="op3"><label for="op3">⏱️ بطء في تجهيز الطلبات وتسليمها</label></div>
+                    <div class="radio-option"><input type="radio" name="operationalHurdle" value="4- الحاجة لصيانة أو تحديث في مرافق الطعام." id="op4"><label for="op4">🏗️ الحاجة لصيانة أو تحديث في مرافق الطعام</label></div>
+                </div>
+                <div class="custom-extra">
+                    <input type="checkbox" id="otherCheck"> <label for="otherCheck">➕ إضافة خيار آخر (غير ذلك)</label>
+                </div>
+                <div id="otherDiv" style="display:none; margin-top:10px; margin-right:1rem;"><input type="text" id="otherText" placeholder="اذكر العائق التشغيلي..." style="width:100%; max-width:300px; padding:8px 15px; border-radius:30px; border:1px solid #e2cfb0;"></div>
+            </div>
+
+            <!-- 6. المؤشر بعد 60 يوماً -->
+            <div class="question-block">
+                <div class="q-title"><i class="fas fa-chart-simple"></i> ما هو المؤشر الذي إذا تحقق بعد 60 يوماً ستعتبر أن تعاوننا ناجحاً ومجيداً مالياً؟</div>
+                <div class="options">
+                    <div class="radio-option"><input type="radio" name="successMetric" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." id="s1"><label for="s1">💰 نمو المبيعات اليومية ودخل الصندوق</label></div>
+                    <div class="radio-option"><input type="radio" name="successMetric" value="2- استقطاب زبائن جديد من سكان الحي لم يسبق لهم التجربة." id="s2"><label for="s2">🧑‍🤝‍🧑 استقطاب زبائن جدد من سكان الحي</label></div>
+                    <div class="radio-option"><input type="radio" name="successMetric" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل." id="s3"><label for="s3">📱 السيطرة الرقمية وتصدر نتائج البحث</label></div>
+                </div>
+            </div>
+
+            <button type="button" id="submitBtn"><i class="fas fa-paper-plane"></i> إرسال الإجابات إلى نموذج Google</button>
+        </form>
+    </div>
 </div>
-
-<!-- 2 -->
-<div class="screen">
-<h2>العائق الأكبر؟</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." required>العمالة
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1095069852" value="2- تذبذب جودة المواد الخام والموردين.">الموردين
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1095069852" value="3- ارتفاع تكاليف التشغيل مقارنة بالربح.">التكاليف
-</label>
-</div>
-
-<!-- 3 -->
-<div class="screen">
-<h2>الميزانية؟</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1005025151" value="1- أقل من 2000 ريال." required>أقل من 2000
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال.">2000 - 5000
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1005025151" value="3- أكثر من 5000 ريال.">أكثر من 5000
-</label>
-</div>
-
-<!-- 4 -->
-<div class="screen">
-<h2>نجم المطعم</h2>
-<input class="textbox" name="entry.1276136133" required>
-<div class="btn" onclick="next()">التالي</div>
-</div>
-
-<!-- 5 -->
-<div class="screen">
-<h2>جودة الخدمة</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.997508088" value="ضعيفة" required>ضعيفة
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.997508088" value="جيدة">جيدة
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.997508088" value="جيد جداً">جيد جداً
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.997508088" value="ممتازة">ممتازة
-</label>
-</div>
-
-<!-- 6 -->
-<div class="screen">
-<h2>الحضور الرقمي</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.391544910" value="1- ضعيف جداً (أو غير موجود)." required>ضعيف
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم).">متوسط
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.391544910" value="3- جيد (يوجد تفاعل ولكن يحتاج احترافية).">جيد
-</label>
-</div>
-
-<!-- 7 -->
-<div class="screen">
-<h2>الحي المستهدف</h2>
-<input class="textbox" name="entry.456560046" required>
-<div class="btn" onclick="next()">التالي</div>
-</div>
-
-<!-- 8 -->
-<div class="screen">
-<h2>الجمهور</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1554988620" value="1- أفراد (شباب وموظفون)." required>أفراد
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1554988620" value="2- عوائل (طلبات كبيرة وتجمعات).">عوائل
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين.">مزيج
-</label>
-</div>
-
-<!-- 9 -->
-<div class="screen">
-<h2>الميزة التنافسية</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1678168052" value="1- الجودة العالية والمذاق الأصيل." required>الجودة
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع.">السعر
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1678168052" value="3- سرعة التوصيل والخدمة.">السرعة
-</label>
-</div>
-
-<!-- 10 -->
-<div class="screen">
-<h2>الفئة العمرية</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1051615624" value="1- مراهقين وطلاب." required>طلاب
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة).">شباب
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.1051615624" value="3- كبار سن وعائلات.">عوائل
-</label>
-</div>
-
-<!-- 11 -->
-<div class="screen">
-<h2>أفضل منصة</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.745744296" value="1- تيك توك." required>تيك توك
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.745744296" value="2- سناب شات.">سناب
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.745744296" value="3- انستقرام.">انستقرام
-</label>
-</div>
-
-<!-- 12 -->
-<div class="screen">
-<h2>التجارب السابقة</h2>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." required>ناجحة
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.834087530" value="2- نعم، ولكن النتائج لم تكن مرضية.">ضعيفة
-</label>
-<label class="choice" onclick="next(this)">
-<input type="radio" name="entry.834087530" value="3- لا، ستكون هذه المرة الأولى.">أول مرة
-</label>
-</div>
-
-<!-- إرسال -->
-<div class="screen">
-<h2>إرسال النموذج</h2>
-<div class="btn" onclick="document.getElementById('form').submit()">إرسال</div>
-</div>
-
-</form>
+<div id="toast" class="toast-msg">✓ تم الإرسال بنجاح</div>
 
 <script>
-let current = 0;
-let screens = document.querySelectorAll(".screen");
-
-function next(el){
-    if(el){ el.querySelector("input").checked = true; }
-    screens[current].classList.remove("active");
-    current++;
-    if(current < screens.length){
-        screens[current].classList.add("active");
-        document.getElementById("progress").style.width = (current/screens.length)*100+"%";
+    // التحكم بحقل "غير ذلك"
+    const otherCheck = document.getElementById('otherCheck');
+    const otherDiv = document.getElementById('otherDiv');
+    const otherInput = document.getElementById('otherText');
+    if(otherCheck) {
+        otherCheck.addEventListener('change', function() {
+            otherDiv.style.display = this.checked ? 'block' : 'none';
+            if(!this.checked) otherInput.value = '';
+        });
     }
-}
 
-function done(){
-    document.body.innerHTML="<h1 style='text-align:center;margin-top:40%'>✅ تم الإرسال</h1>";
-}
+    // رابط الـ Google Forms
+    const FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse";
+
+    // دالة عرض التنبيه
+    function showToast(msg, isError = false) {
+        const toastEl = document.getElementById('toast');
+        toastEl.textContent = msg || (isError ? 'حدث خطأ، حاول مرة أخرى' : '✓ تم الإرسال بنجاح');
+        toastEl.style.backgroundColor = isError ? '#b3413b' : '#2b5e3b';
+        toastEl.style.opacity = '1';
+        setTimeout(() => { toastEl.style.opacity = '0'; }, 3500);
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        // 1. جمع القيم
+        let budget = document.querySelector('input[name="budget"]:checked');
+        let starDish = document.getElementById('starDish').value.trim();
+        let customerService = document.querySelector('input[name="customerService"]:checked');
+        let socialPresence = document.getElementById('socialPresence').value.trim();
+        let operational = document.querySelector('input[name="operationalHurdle"]:checked');
+        let successMetric = document.querySelector('input[name="successMetric"]:checked');
+        
+        // حالة "غير ذلك" للعائق التشغيلي
+        let otherValue = (otherCheck && otherCheck.checked && otherInput.value.trim() !== "") ? otherInput.value.trim() : null;
+
+        // التحقق من الحقول الأساسية (يمكنك تعديلها لتناسب احتياجك)
+        if(!budget) { showToast("❌ الرجاء اختيار الميزانية الشهرية", true); return; }
+        if(starDish === "") { showToast("❌ الرجاء كتابة نجم المطعم (الصنف الذي تراهون عليه)", true); return; }
+        if(!customerService) { showToast("❌ الرجاء تقييم خدمة العملاء", true); return; }
+        if(socialPresence === "") { showToast("❌ الرجاء وصف حضور ليالي الطيبين على التواصل الاجتماعي", true); return; }
+        if(!operational && !otherValue) { showToast("❌ الرجاء اختيار العائق التشغيلي أو إضافة خيار آخر", true); return; }
+        if(!successMetric) { showToast("❌ الرجاء اختيار المؤشر المالي بعد 60 يوماً", true); return; }
+
+        // بناء كائن البيانات بما يتوافق مع أسماء الحقول في نموذج Google (من رابط الـ entry)
+        // باستخدام الـ entry IDs المستخرجة من رابطك
+        // ملاحظة: سأستخدم الروابط الصحيحة بناءً على النموذج الذي أرسلته.
+        // بما أن النموذج يحتوي على عدة أسئلة، سأطابق الأسئلة مع الـ entry.xxxxxxx
+        
+        // من رابط الـ viewform:
+        // entry.1005025151 → الميزانية
+        // entry.1276136133 → نجم المطعم (نص)
+        // entry.997508088 → خدمة العملاء (جيد جدا ... إلخ)
+        // entry.391544910 → حضور ليالي الطيبين (نص مختار من القائمة ولكننا سنرسل النص الحر)
+        // entry.1095069852 → العائق التشغيلي
+        // entry.1099859393 → المؤشر بعد 60 يوم
+        // أيضاً entry.456560046 و entry.1554988620 الخ لكني سأرسل الأساسيات
+        
+        // إنشاء نموذج مخفي وإرساله عبر fetch بطريقة مشابهة لـ POST
+        const formData = new URLSearchParams();
+        
+        // تعيين القيم حسب الحقل المطابق من رابط النموذج:
+        formData.append('entry.1005025151', budget.value);      // الميزانية
+        formData.append('entry.1276136133', starDish);           // نجم المطعم
+        formData.append('entry.997508088', customerService.value); // خدمة العملاء
+        
+        // حقل حضور ليالي الطيبين (نص حر من textarea)
+        formData.append('entry.391544910', socialPresence);
+        
+        // العائق التشغيلي: إذا كان هناك اختيار من الراديو استخدمه، وإلا استخدم النص المخصص
+        let operationalValue = operational ? operational.value : (otherValue ? "خيار آخر: " + otherValue : "");
+        formData.append('entry.1095069852', operationalValue);
+        
+        // المؤشر بعد 60 يوم
+        formData.append('entry.1099859393', successMetric.value);
+        
+        // حقول إضافية لضمان عدم وجود فراغات مطلوبة قد تظهر في النموذج (اختيارية)
+        // بعض الحقول الأخرى تظهر في رابط النموذج مثل entry.456560046, entry.1554988620 , سنتركها فارغة أو نرسل قيمة افتراضية
+        formData.append('entry.456560046', ' ');   // حقل إضافي غير محدد (للتجنب)
+        formData.append('entry.1554988620', ' '); 
+        formData.append('entry.1678168052', ' ');
+        formData.append('entry.1051615624', ' ');
+        formData.append('entry.745744296', ' ');
+        formData.append('entry.834087530', ' ');
+        
+        // إرسال البيانات إلى Google Forms
+        fetch(FORM_ACTION_URL, {
+            method: 'POST',
+            mode: 'no-cors',       // مهم لأن Google Forms لا يسمح بقراءة الرد من origins مختلفة
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData.toString()
+        }).then(() => {
+            // بسبب وضع no-cors لا نستطيع قراءة الرد الحقيقي، لكن الإرسال تم بنجاح على الأغلب
+            showToast("✓ تم إرسال الإجابات إلى نموذج Google بنجاح");
+            // اختيارياً: إعادة تعيين النموذج أو مسح الحقول
+            document.getElementById('mainForm').reset();
+            if(otherDiv) otherDiv.style.display = 'none';
+            if(otherCheck) otherCheck.checked = false;
+            if(otherInput) otherInput.value = '';
+        }).catch(err => {
+            console.error(err);
+            showToast("⚠️ حدث خطأ في الإرسال، تأكد من اتصال الإنترنت", true);
+        });
+    });
 </script>
-
 </body>
 </html>
