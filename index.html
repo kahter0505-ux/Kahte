@@ -1,396 +1,232 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الطريق للتسويق | استبيان المطعم الكامل</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: #f2efe7;
-            padding: 2rem 1rem;
-            color: #2c2418;
-        }
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-        }
-        .header {
-            background: #1e2f2a;
-            color: #fef3da;
-            padding: 1.8rem;
-            border-radius: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 12px 20px -10px rgba(0,0,0,0.1);
-        }
-        .header h1 {
-            font-size: 1.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .header h1 i {
-            background: #c9a03d;
-            padding: 8px;
-            border-radius: 50%;
-            color: #1e2f2a;
-        }
-        .form-card {
-            background: white;
-            border-radius: 1.8rem;
-            padding: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-            border: 1px solid #f0e3d4;
-        }
-        .question-block {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee2d2;
-        }
-        .question-block:last-child {
-            border-bottom: none;
-        }
-        .q-title {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #3b2c1a;
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-        .q-title i {
-            color: #c9a03d;
-            width: 1.6rem;
-        }
-        .options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 8px;
-        }
-        .radio-opt, .checkbox-opt {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #fefaf5;
-            padding: 8px 18px;
-            border-radius: 40px;
-            border: 1px solid #e8dac8;
-            cursor: pointer;
-        }
-        .radio-opt:hover, .checkbox-opt:hover {
-            background: #fef3e6;
-            border-color: #c9a03d;
-        }
-        input[type="radio"], input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #c9a03d;
-            margin: 0;
-        }
-        label {
-            cursor: pointer;
-            font-weight: 500;
-        }
-        input[type="text"], input[type="email"], textarea, select {
-            width: 100%;
-            max-width: 550px;
-            padding: 12px 16px;
-            border-radius: 50px;
-            border: 1.5px solid #e2d0b6;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
-            background: #fffdf9;
-        }
-        textarea {
-            border-radius: 24px;
-            resize: vertical;
-        }
-        .subnote {
-            font-size: 0.75rem;
-            color: #a48d6a;
-            margin-top: 6px;
-        }
-        button {
-            background: #1e2f2a;
-            color: #f9e7cf;
-            border: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 14px 24px;
-            border-radius: 50px;
-            width: 100%;
-            cursor: pointer;
-            margin-top: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            transition: 0.2s;
-        }
-        button:hover {
-            background: #c9a03d;
-            color: #1e2f2a;
-        }
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2b5e3b;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 500;
-            opacity: 0;
-            transition: 0.2s;
-            pointer-events: none;
-            z-index: 1000;
-            white-space: nowrap;
-        }
-        @media (max-width: 650px) {
-            .form-card { padding: 1.2rem; }
-            .q-title { font-size: 1rem; }
-            .options { gap: 8px; }
-            .toast { white-space: normal; width: 85%; text-align: center; }
-        }
-        hr {
-            margin: 0.5rem 0;
-        }
-        .required-star {
-            color: #c95a3d;
-            margin-right: 4px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تشخيص مطعم احترافي</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    font-family: sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding:20px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.step { display:none; }
+.step.active { display:block; }
+
+.progress-bar {
+    height:8px;
+    background:#334155;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress {
+    height:100%;
+    background:linear-gradient(90deg,#fbbf24,#f59e0b);
+    width:0%;
+    transition:0.3s;
+}
+
+.btn {
+    background:linear-gradient(90deg,#fbbf24,#f59e0b);
+    color:black;
+    padding:12px;
+    border-radius:12px;
+    width:100%;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.back {
+    background:#334155;
+    color:white;
+    margin-top:10px;
+}
+
+input, select {
+    background:#0f172a;
+    border:1px solid #334155;
+    color:white;
+}
+</style>
 </head>
-<body>
-<div class="container">
-    <div class="header">
-        <h1><i class="fas fa-chart-line"></i> الطريق للتسويق</h1>
-        <p>استبيان شامل لتطوير المطعم | جميع الإجابات تُرسل إلى نموذج Google مباشرة</p>
-    </div>
-    <div class="form-card">
-        <form id="mainForm">
-            <!-- السؤال 1: الميزانية -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-coins"></i> 1. ما هي الميزانية الشهرية "البسيطة" التي تفكر في رصدها كاستثمار في التسويق؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="budget" value="1- أقل من 2000 ريال" id="b1"><label for="b1">أقل من 2000 ريال</label></div>
-                    <div class="radio-opt"><input type="radio" name="budget" value="2- من 2000 إلى 5000 ريال" id="b2"><label for="b2">2000 إلى 5000 ريال</label></div>
-                    <div class="radio-opt"><input type="radio" name="budget" value="3- أكثر من 5000 ريال" id="b3"><label for="b3">أكثر من 5000 ريال</label></div>
-                    <div class="radio-opt"><input type="radio" name="budget" value="4- متاحة حسب الاتفاق" id="b4"><label for="b4">متاحة حسب الاتفاق</label></div>
-                </div>
-            </div>
 
-            <!-- 2. نجم المطعم -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-star-of-life"></i> 2. ما هو الصنف الذي يعتبره "نجم المطعم" وتراهون على جودته لجذب الزبائن؟</div>
-                <input type="text" id="starDish" name="starDish" placeholder="مثال: شاورما اللحم، البيتزا الخشبية، الكنافة النابلسية...">
-            </div>
+<body class="p-4">
 
-            <!-- 3. خدمة العملاء -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-headset"></i> 3. تقييمك لخدمة العملاء في المطعم (الرد على العملاء على الواتس - قوقل ماب)</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="service" value="ضعيفة" id="cs1"><label for="cs1">ضعيفة</label></div>
-                    <div class="radio-opt"><input type="radio" name="service" value="جيدة" id="cs2"><label for="cs2">جيدة</label></div>
-                    <div class="radio-opt"><input type="radio" name="service" value="جيد جداً" id="cs3"><label for="cs3">جيد جداً</label></div>
-                    <div class="radio-opt"><input type="radio" name="service" value="ممتازة" id="cs4"><label for="cs4">ممتازة</label></div>
-                </div>
-            </div>
+<div class="max-w-xl mx-auto">
 
-            <!-- 4. حضور ليالي الطيبين -->
-            <div class="question-block">
-                <div class="q-title"><i class="fab fa-tiktok"></i> 4. كيف تصف حضور "ليالي الطيبين" الحالي على منصات التواصل الاجتماعي؟</div>
-                <textarea id="socialPresence" rows="2" placeholder="انستقرام، تيك توك، فيسبوك... (مثال: نشاط ضعيف، تفاعل متوسط، حملات محدودة)"></textarea>
-            </div>
-
-            <!-- 5. العائق التشغيلي -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-tools"></i> 5. ما هو العائق التشغيلي الأكبر الذي يواجه المطعم حالياً؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="operational" value="نقص أو عدم استقرار العمالة" id="op1"><label for="op1">نقص أو عدم استقرار العمالة</label></div>
-                    <div class="radio-opt"><input type="radio" name="operational" value="تذبذب جودة المواد الخام والموردين" id="op2"><label for="op2">تذبذب جودة المواد الخام والموردين</label></div>
-                    <div class="radio-opt"><input type="radio" name="operational" value="بطء في تجهيز الطلبات وتسليمها" id="op3"><label for="op3">بطء في تجهيز الطلبات وتسليمها</label></div>
-                    <div class="radio-opt"><input type="radio" name="operational" value="الحاجة لصيانة أو تحديث في مرافق الطعام" id="op4"><label for="op4">الحاجة لصيانة أو تحديث في مرافق الطعام</label></div>
-                </div>
-                <div style="margin-top: 12px;">
-                    <input type="checkbox" id="otherOpCheck"> <label for="otherOpCheck">➕ إضافة خيار آخر (غير ذلك)</label>
-                    <input type="text" id="otherOpText" style="display:none; margin-top: 10px; max-width: 400px;" placeholder="اذكر العائق...">
-                </div>
-            </div>
-
-            <!-- 6. المؤشر بعد 60 يوماً -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-chart-simple"></i> 6. ما هو المؤشر الذي إذا تحقق بعد 60 يوماً ستعتبر أن تعاوننا ناجحاً ومجيداً مالياً؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="metric" value="نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر" id="m1"><label for="m1">نمو المبيعات اليومية ودخل الصندوق</label></div>
-                    <div class="radio-opt"><input type="radio" name="metric" value="استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة" id="m2"><label for="m2">استقطاب زبائن جدد من سكان الحي</label></div>
-                    <div class="radio-opt"><input type="radio" name="metric" value="السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل" id="m3"><label for="m3">السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل</label></div>
-                </div>
-            </div>
-
-            <!-- 7. السعر المنافس -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-tag"></i> 7. ما هو تقييمك للسعر المنافس والمناسب للجميع؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="price" value="مرتفع مقارنة بالجودة" id="p1"><label for="p1">مرتفع مقارنة بالجودة</label></div>
-                    <div class="radio-opt"><input type="radio" name="price" value="مناسب جداً" id="p2"><label for="p2">مناسب جداً</label></div>
-                    <div class="radio-opt"><input type="radio" name="price" value="أقل من المتوقع" id="p3"><label for="p3">أقل من المتوقع</label></div>
-                    <div class="radio-opt"><input type="radio" name="price" value="يحتاج مراجعة" id="p4"><label for="p4">يحتاج مراجعة</label></div>
-                </div>
-            </div>
-
-            <!-- 8. الفئة العمرية الأكثر إقبالاً -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-users"></i> 8. ما هي الفئة العمرية الأكثر إقبالاً على المطعم حالياً؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="ageGroup" value="شباب (أفراد ومجموعات صغيرة)" id="a1"><label for="a1">شباب (أفراد ومجموعات صغيرة)</label></div>
-                    <div class="radio-opt"><input type="radio" name="ageGroup" value="عائلات" id="a2"><label for="a2">عائلات</label></div>
-                    <div class="radio-opt"><input type="radio" name="ageGroup" value="كبار السن" id="a3"><label for="a3">كبار السن</label></div>
-                    <div class="radio-opt"><input type="radio" name="ageGroup" value="جميع الفئات" id="a4"><label for="a4">جميع الفئات</label></div>
-                </div>
-            </div>
-
-            <!-- 9. المنصة الاجتماعية الأكثر استخداماً -->
-            <div class="question-block">
-                <div class="q-title"><i class="fab fa-instagram"></i> 9. ما هي المنصة الاجتماعية الأكثر استخداماً للمطعم؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="platform" value="انستقرام" id="pl1"><label for="pl1">انستقرام</label></div>
-                    <div class="radio-opt"><input type="radio" name="platform" value="تيك توك" id="pl2"><label for="pl2">تيك توك</label></div>
-                    <div class="radio-opt"><input type="radio" name="platform" value="فيسبوك" id="pl3"><label for="pl3">فيسبوك</label></div>
-                    <div class="radio-opt"><input type="radio" name="platform" value="تويتر / X" id="pl4"><label for="pl4">تويتر / X</label></div>
-                    <div class="radio-opt"><input type="radio" name="platform" value="سناب شات" id="pl5"><label for="pl5">سناب شات</label></div>
-                </div>
-            </div>
-
-            <!-- 10. تجارب تسويقية سابقة -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-ad"></i> 10. هل سبق وأن قمت بتجارب تسويقية مدفوعة للمطعم؟</div>
-                <div class="options">
-                    <div class="radio-opt"><input type="radio" name="prevMarketing" value="نعم، بشكل احترافي ومستمر" id="prev1"><label for="prev1">نعم، بشكل احترافي ومستمر</label></div>
-                    <div class="radio-opt"><input type="radio" name="prevMarketing" value="نعم، تجارب بسيطة وغير مستمرة" id="prev2"><label for="prev2">نعم، تجارب بسيطة وغير مستمرة</label></div>
-                    <div class="radio-opt"><input type="radio" name="prevMarketing" value="لا، لم نجرب أبداً" id="prev3"><label for="prev3">لا، لم نجرب أبداً</label></div>
-                    <div class="radio-opt"><input type="radio" name="prevMarketing" value="نخطط قريباً" id="prev4"><label for="prev4">نخطط قريباً</label></div>
-                </div>
-            </div>
-
-            <!-- 11. المدينة / الحي -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-location-dot"></i> 11. المدينة / الحي الذي يقع فيه المطعم</div>
-                <input type="text" id="location" placeholder="مثال: الرياض - حي النخيل، جدة - حلي، الدمام...">
-            </div>
-
-            <!-- 12. اسم المطعم -->
-            <div class="question-block">
-                <div class="q-title"><i class="fas fa-store"></i> 12. اسم المطعم</div>
-                <input type="text" id="restaurantName" placeholder="أدخل اسم المطعم...">
-            </div>
-
-            <button type="button" id="submitBtn"><i class="fas fa-paper-plane"></i> إرسال جميع الإجابات إلى Google Forms</button>
-        </form>
-    </div>
+<!-- PROGRESS -->
+<div class="progress-bar mb-6">
+    <div class="progress" id="progress"></div>
 </div>
-<div id="toastMsg" class="toast">✓ تم الإرسال بنجاح</div>
 
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<form action="https://docs.google.com/forms/d/e/PUT-YOUR-ID-HERE/formResponse"
+method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+
+<!-- STEP 1 -->
+<div class="step active card">
+<h2>🎯 الهدف</h2>
+
+<select name="entry.1" class="w-full p-2 rounded mt-3">
+<option>زيادة المبيعات</option>
+<option>جلب عملاء جدد</option>
+<option>تنشيط الأوقات الراكدة</option>
+</select>
+
+<input name="entry.2" class="w-full p-2 rounded mt-3" placeholder="متوسط المبيعات اليومية">
+
+<button type="button" class="btn" onclick="nextStep()">التالي</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step card">
+<h2>⚠️ المشكلة</h2>
+
+<select name="entry.3" class="w-full p-2 rounded mt-3">
+<option>قلة زبائن</option>
+<option>الزبائن لا يعودون</option>
+<option>الاثنين</option>
+</select>
+
+<select name="entry.4" class="w-full p-2 rounded mt-3">
+<option>تأخير</option>
+<option>جودة</option>
+<option>خدمة</option>
+<option>نظافة</option>
+</select>
+
+<button type="button" class="btn" onclick="nextStep()">التالي</button>
+<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="step card">
+<h2>🍽️ المنتج</h2>
+
+<input name="entry.5" class="w-full p-2 rounded mt-3" placeholder="أكثر طبق مبيعًا">
+<input name="entry.6" class="w-full p-2 rounded mt-3" placeholder="طبق يستحق الشهرة">
+
+<button type="button" class="btn" onclick="nextStep()">التالي</button>
+<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+</div>
+
+<!-- STEP 4 -->
+<div class="step card">
+<h2>🏪 السوق</h2>
+
+<input name="entry.7" class="w-full p-2 rounded mt-3" placeholder="المنافسين">
+
+<select name="entry.8" class="w-full p-2 rounded mt-3">
+<option>السعر</option>
+<option>الجودة</option>
+<option>الشهرة</option>
+<option>الموقع</option>
+</select>
+
+<button type="button" class="btn" onclick="nextStep()">التالي</button>
+<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+</div>
+
+<!-- STEP 5 -->
+<div class="step card">
+<h2>📣 التسويق</h2>
+
+<select name="entry.9" class="w-full p-2 rounded mt-3">
+<option>ضعيف</option>
+<option>متوسط</option>
+<option>جيد</option>
+</select>
+
+<select name="entry.10" class="w-full p-2 rounded mt-3">
+<option>تيك توك</option>
+<option>سناب</option>
+<option>انستقرام</option>
+</select>
+
+<select name="entry.11" class="w-full p-2 rounded mt-3">
+<option>أقل من 2000</option>
+<option>2000-5000</option>
+<option>أكثر من 5000</option>
+</select>
+
+<button type="button" class="btn" onclick="nextStep()">التالي</button>
+<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+</div>
+
+<!-- STEP 6 -->
+<div class="step card">
+<h2>🔁 عودة العميل (مهم)</h2>
+
+<select name="entry.12" class="w-full p-2 rounded mt-3">
+<option>نعم</option>
+<option>لا</option>
+<option>أحيانًا</option>
+</select>
+
+<input name="entry.13" class="w-full p-2 rounded mt-3" placeholder="سبب العودة أو عدمها">
+
+<input name="entry.14" class="w-full p-2 rounded mt-3" placeholder="ملاحظات إضافية">
+
+<input name="entry.15" class="w-full p-2 rounded mt-3" placeholder="رقم التواصل (اختياري)">
+
+<button type="submit" class="btn">🚀 إرسال التحليل</button>
+<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+</div>
+
+</form>
+
+<div id="success" class="hidden text-center card mt-6">
+<h2>✅ تم الإرسال</h2>
+<p>جاري تحليل مطعمك وبناء خطة مخصصة</p>
+</div>
+
+<iframe name="hidden_iframe" style="display:none;" onload="if(submitted){showSuccess()}"></iframe>
+
+</div>
+
 <script>
-    // إظهار/إخفاء حقل "عائق آخر"
-    const otherCheck = document.getElementById('otherOpCheck');
-    const otherDiv = document.getElementById('otherOpText');
-    if(otherCheck) {
-        otherCheck.addEventListener('change', function() {
-            otherDiv.style.display = this.checked ? 'block' : 'none';
-            if(!this.checked) otherDiv.value = '';
-        });
+let current = 0;
+let steps = document.querySelectorAll(".step");
+let progress = document.getElementById("progress");
+let submitted = false;
+
+function showStep(i){
+    steps.forEach(s=>s.classList.remove("active"));
+    steps[i].classList.add("active");
+    progress.style.width = ((i+1)/steps.length)*100 + "%";
+}
+
+function nextStep(){
+    if(current < steps.length-1){
+        current++;
+        showStep(current);
     }
+}
 
-    const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse";
-
-    function showToast(msg, isError = false) {
-        const toast = document.getElementById('toastMsg');
-        toast.textContent = msg;
-        toast.style.backgroundColor = isError ? '#b3413b' : '#2b5e3b';
-        toast.style.opacity = '1';
-        setTimeout(() => { toast.style.opacity = '0'; }, 3500);
+function prevStep(){
+    if(current > 0){
+        current--;
+        showStep(current);
     }
+}
 
-    document.getElementById('submitBtn').addEventListener('click', function() {
-        // جمع القيم
-        let budget = document.querySelector('input[name="budget"]:checked');
-        let starDish = document.getElementById('starDish').value.trim();
-        let service = document.querySelector('input[name="service"]:checked');
-        let socialPresence = document.getElementById('socialPresence').value.trim();
-        let operational = document.querySelector('input[name="operational"]:checked');
-        let metric = document.querySelector('input[name="metric"]:checked');
-        let price = document.querySelector('input[name="price"]:checked');
-        let ageGroup = document.querySelector('input[name="ageGroup"]:checked');
-        let platform = document.querySelector('input[name="platform"]:checked');
-        let prevMarketing = document.querySelector('input[name="prevMarketing"]:checked');
-        let location = document.getElementById('location').value.trim();
-        let restaurantName = document.getElementById('restaurantName').value.trim();
-
-        // معالجة العائق الآخر
-        let operationalValue = operational ? operational.value : null;
-        if(otherCheck && otherCheck.checked && otherDiv.value.trim() !== "") {
-            operationalValue = "آخر: " + otherDiv.value.trim();
-        }
-
-        // التحقق من الحقول المهمة
-        if(!budget) { showToast("❌ الرجاء اختيار الميزانية الشهرية", true); return; }
-        if(starDish === "") { showToast("❌ الرجاء كتابة نجم المطعم", true); return; }
-        if(!service) { showToast("❌ الرجاء تقييم خدمة العملاء", true); return; }
-        if(socialPresence === "") { showToast("❌ الرجاء وصف حضور ليالي الطيبين", true); return; }
-        if(!operationalValue) { showToast("❌ الرجاء اختيار العائق التشغيلي", true); return; }
-        if(!metric) { showToast("❌ الرجاء اختيار المؤشر المالي بعد 60 يوماً", true); return; }
-        if(!price) { showToast("❌ الرجاء تقييم السعر المنافس", true); return; }
-        if(!ageGroup) { showToast("❌ الرجاء اختيار الفئة العمرية الأكثر إقبالاً", true); return; }
-        if(!platform) { showToast("❌ الرجاء اختيار المنصة الاجتماعية الأكثر استخداماً", true); return; }
-        if(!prevMarketing) { showToast("❌ الرجاء الإجابة عن التجارب التسويقية السابقة", true); return; }
-        if(location === "") { showToast("❌ الرجاء كتابة المدينة / الحي", true); return; }
-        if(restaurantName === "") { showToast("❌ الرجاء كتابة اسم المطعم", true); return; }
-
-        // بناء البيانات للإرسال (حسب الـ entry IDs من رابط النموذج)
-        const formData = new URLSearchParams();
-        formData.append('entry.1005025151', budget.value);
-        formData.append('entry.1276136133', starDish);
-        formData.append('entry.997508088', service.value);
-        formData.append('entry.391544910', socialPresence);
-        formData.append('entry.1095069852', operationalValue);
-        formData.append('entry.1099859393', metric.value);
-        formData.append('entry.1678168052', price.value);
-        formData.append('entry.1051615624', ageGroup.value);
-        formData.append('entry.745744296', platform.value);
-        formData.append('entry.834087530', prevMarketing.value);
-        formData.append('entry.456560046', location);
-        formData.append('entry.1554988620', restaurantName);
-
-        // إرسال البيانات
-        fetch(FORM_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: formData.toString()
-        }).then(() => {
-            showToast("✓ تم إرسال جميع الإجابات إلى نموذج Google بنجاح");
-            document.getElementById('mainForm').reset();
-            if(otherDiv) otherDiv.style.display = 'none';
-            if(otherCheck) otherCheck.checked = false;
-        }).catch(() => {
-            showToast("⚠️ حدث خطأ في الإرسال، حاول مرة أخرى", true);
-        });
-    });
+function showSuccess(){
+    document.querySelector("form").style.display="none";
+    document.getElementById("success").classList.remove("hidden");
+}
 </script>
+
 </body>
 </html>
