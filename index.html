@@ -3,63 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تشخيص مطعم احترافي</title>
-
+<title>تشخيص مطعم</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body {
-    font-family: sans-serif;
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    padding:20px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.1);
-}
-
-.step { display:none; }
-.step.active { display:block; }
-
-.progress-bar {
-    height:8px;
-    background:#334155;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-.progress {
-    height:100%;
-    background:linear-gradient(90deg,#fbbf24,#f59e0b);
-    width:0%;
-    transition:0.3s;
-}
-
-.btn {
-    background:linear-gradient(90deg,#fbbf24,#f59e0b);
-    color:black;
-    padding:12px;
-    border-radius:12px;
-    width:100%;
-    margin-top:15px;
-    font-weight:bold;
-}
-
-.back {
-    background:#334155;
-    color:white;
-    margin-top:10px;
-}
-
-input, select {
-    background:#0f172a;
-    border:1px solid #334155;
-    color:white;
-}
+body {background:#0f172a; color:white; font-family:sans-serif;}
+.card{background:#111827; padding:20px; border-radius:16px;}
+.step{display:none;}
+.step.active{display:block;}
+.btn{background:#f59e0b;color:black;padding:12px;border-radius:10px;width:100%;margin-top:10px;font-weight:bold;}
+input,select{background:#0b1220;border:1px solid #334155;color:white;padding:10px;border-radius:10px;width:100%;margin-top:10px;}
+.progress{height:6px;background:#f59e0b;width:0%;}
 </style>
 </head>
 
@@ -67,165 +21,161 @@ input, select {
 
 <div class="max-w-xl mx-auto">
 
-<!-- PROGRESS -->
-<div class="progress-bar mb-6">
-    <div class="progress" id="progress"></div>
+<div class="w-full bg-gray-700 rounded mb-5">
+<div class="progress" id="progress"></div>
 </div>
 
 <form action="https://docs.google.com/forms/d/e/PUT-YOUR-ID-HERE/formResponse"
 method="POST" target="hidden_iframe" onsubmit="submitted=true;">
 
-<!-- STEP 1 -->
+<!-- 1 -->
 <div class="step active card">
-<h2>🎯 الهدف</h2>
-
-<select name="entry.1" class="w-full p-2 rounded mt-3">
-<option>زيادة المبيعات</option>
-<option>جلب عملاء جدد</option>
-<option>تنشيط الأوقات الراكدة</option>
+<h3>📌 معلومات عامة</h3>
+<input name="entry.1" placeholder="اسم المطعم">
+<input name="entry.2" placeholder="المدينة">
+<select name="entry.3">
+<option>شعبي</option>
+<option>وجبات سريعة</option>
+<option>كوفي</option>
+<option>راقي</option>
 </select>
-
-<input name="entry.2" class="w-full p-2 rounded mt-3" placeholder="متوسط المبيعات اليومية">
-
-<button type="button" class="btn" onclick="nextStep()">التالي</button>
+<button type="button" class="btn" onclick="next()">التالي</button>
 </div>
 
-<!-- STEP 2 -->
+<!-- 2 -->
 <div class="step card">
-<h2>⚠️ المشكلة</h2>
+<h3>📊 الأداء</h3>
+<input name="entry.4" placeholder="المبيعات اليومية">
+<input name="entry.5" placeholder="عدد العملاء يوميًا">
+<select name="entry.6">
+<option>ثابتة</option>
+<option>تنخفض</option>
+<option>ترتفع</option>
+</select>
+<button type="button" class="btn" onclick="next()">التالي</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
+</div>
 
-<select name="entry.3" class="w-full p-2 rounded mt-3">
-<option>قلة زبائن</option>
-<option>الزبائن لا يعودون</option>
+<!-- 3 -->
+<div class="step card">
+<h3>🍽️ المنتج</h3>
+<input name="entry.7" placeholder="أكثر 3 أطباق مبيعًا">
+<select name="entry.8">
+<option>نعم طبق مميز</option>
+<option>لا يوجد</option>
+</select>
+<select name="entry.9">
+<option>يوجد أطباق لا تُطلب</option>
+<option>لا</option>
+</select>
+<button type="button" class="btn" onclick="next()">التالي</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
+</div>
+
+<!-- 4 -->
+<div class="step card">
+<h3>👥 العملاء</h3>
+<select name="entry.10">
+<option>جدد</option>
+<option>مكررين</option>
 <option>الاثنين</option>
 </select>
-
-<select name="entry.4" class="w-full p-2 rounded mt-3">
-<option>تأخير</option>
-<option>جودة</option>
-<option>خدمة</option>
-<option>نظافة</option>
+<select name="entry.11">
+<option>نعم يعودون</option>
+<option>لا</option>
+<option>أحيانًا</option>
 </select>
-
-<button type="button" class="btn" onclick="nextStep()">التالي</button>
-<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
-</div>
-
-<!-- STEP 3 -->
-<div class="step card">
-<h2>🍽️ المنتج</h2>
-
-<input name="entry.5" class="w-full p-2 rounded mt-3" placeholder="أكثر طبق مبيعًا">
-<input name="entry.6" class="w-full p-2 rounded mt-3" placeholder="طبق يستحق الشهرة">
-
-<button type="button" class="btn" onclick="nextStep()">التالي</button>
-<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
-</div>
-
-<!-- STEP 4 -->
-<div class="step card">
-<h2>🏪 السوق</h2>
-
-<input name="entry.7" class="w-full p-2 rounded mt-3" placeholder="المنافسين">
-
-<select name="entry.8" class="w-full p-2 rounded mt-3">
-<option>السعر</option>
-<option>الجودة</option>
-<option>الشهرة</option>
-<option>الموقع</option>
+<select name="entry.12">
+<option>سريع</option>
+<option>متوسط</option>
+<option>بطيء</option>
 </select>
-
-<button type="button" class="btn" onclick="nextStep()">التالي</button>
-<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+<button type="button" class="btn" onclick="next()">التالي</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
 </div>
 
-<!-- STEP 5 -->
+<!-- 5 -->
 <div class="step card">
-<h2>📣 التسويق</h2>
-
-<select name="entry.9" class="w-full p-2 rounded mt-3">
+<h3>🏪 التشغيل</h3>
+<select name="entry.13">
 <option>ضعيف</option>
 <option>متوسط</option>
-<option>جيد</option>
+<option>ممتاز</option>
 </select>
+<select name="entry.14">
+<option>يوجد تأخير</option>
+<option>لا يوجد</option>
+</select>
+<select name="entry.15">
+<option>نظافة ضعيفة</option>
+<option>متوسطة</option>
+<option>ممتازة</option>
+</select>
+<button type="button" class="btn" onclick="next()">التالي</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
+</div>
 
-<select name="entry.10" class="w-full p-2 rounded mt-3">
+<!-- 6 -->
+<div class="step card">
+<h3>📣 التسويق</h3>
+<select name="entry.16">
+<option>يوجد تسويق</option>
+<option>لا يوجد</option>
+</select>
+<select name="entry.17">
 <option>تيك توك</option>
 <option>سناب</option>
 <option>انستقرام</option>
+<option>لا يوجد</option>
 </select>
-
-<select name="entry.11" class="w-full p-2 rounded mt-3">
+<select name="entry.18">
 <option>أقل من 2000</option>
 <option>2000-5000</option>
 <option>أكثر من 5000</option>
 </select>
-
-<button type="button" class="btn" onclick="nextStep()">التالي</button>
-<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+<button type="button" class="btn" onclick="next()">التالي</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
 </div>
 
-<!-- STEP 6 -->
+<!-- 7 -->
 <div class="step card">
-<h2>🔁 عودة العميل (مهم)</h2>
+<h3>📍 الموقع والمنافسة</h3>
+input name="entry.19" placeholder="المنافسين">
+<input name="entry.20" placeholder="لماذا يختارك العميل؟">
+<button type="button" class="btn" onclick="next()">التالي</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
+</div>
 
-<select name="entry.12" class="w-full p-2 rounded mt-3">
-<option>نعم</option>
-<option>لا</option>
-<option>أحيانًا</option>
-</select>
-
-<input name="entry.13" class="w-full p-2 rounded mt-3" placeholder="سبب العودة أو عدمها">
-
-<input name="entry.14" class="w-full p-2 rounded mt-3" placeholder="ملاحظات إضافية">
-
-<input name="entry.15" class="w-full p-2 rounded mt-3" placeholder="رقم التواصل (اختياري)">
-
-<button type="submit" class="btn">🚀 إرسال التحليل</button>
-<button type="button" class="btn back" onclick="prevStep()">رجوع</button>
+<!-- 8 -->
+<div class="step card">
+<h3>🔁 المشاكل</h3>
+<input name="entry.21" placeholder="أكبر مشكلة">
+<input name="entry.22" placeholder="ما الذي تريد تحسينه فورًا">
+<button class="btn" type="submit">🚀 إرسال</button>
+<button type="button" class="btn" onclick="back()">رجوع</button>
 </div>
 
 </form>
 
-<div id="success" class="hidden text-center card mt-6">
-<h2>✅ تم الإرسال</h2>
-<p>جاري تحليل مطعمك وبناء خطة مخصصة</p>
-</div>
-
-<iframe name="hidden_iframe" style="display:none;" onload="if(submitted){showSuccess()}"></iframe>
+<iframe name="hidden_iframe" style="display:none;" onload="if(submitted){alert('تم الإرسال')}"></iframe>
 
 </div>
 
 <script>
-let current = 0;
-let steps = document.querySelectorAll(".step");
-let progress = document.getElementById("progress");
-let submitted = false;
+let i=0;
+let steps=document.querySelectorAll(".step");
+let submitted=false;
 
-function showStep(i){
-    steps.forEach(s=>s.classList.remove("active"));
-    steps[i].classList.add("active");
-    progress.style.width = ((i+1)/steps.length)*100 + "%";
+function show(){
+steps.forEach(s=>s.classList.remove("active"));
+steps[i].classList.add("active");
+document.getElementById("progress").style.width=((i+1)/steps.length)*100+"%";
 }
 
-function nextStep(){
-    if(current < steps.length-1){
-        current++;
-        showStep(current);
-    }
-}
+function next(){ if(i<steps.length-1){i++;show();} }
+function back(){ if(i>0){i--;show();} }
 
-function prevStep(){
-    if(current > 0){
-        current--;
-        showStep(current);
-    }
-}
-
-function showSuccess(){
-    document.querySelector("form").style.display="none";
-    document.getElementById("success").classList.remove("hidden");
-}
+show();
 </script>
 
 </body>
