@@ -1,377 +1,258 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>نموذج تقييم المطعم</title>
+<title>نموذج تقييم أداء المطعم</title>
 
 <style>
-
-body {
-
-    font-family: 'Tahoma', sans-serif;
-
-    background: #f5f7fa;
-
-    margin: 0;
-
-    padding: 20px;
-
+:root{
+  --primary:#e74c3c;
+  --bg:#f6f8fb;
+  --text:#222;
+  --muted:#777;
 }
-
-.container {
-
-    max-width: 900px;
-
-    margin: auto;
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, Tahoma, Arial;
+  background:var(--bg);
+  color:var(--text);
 }
-
-h2 {
-
-    color: #333;
-
-    border-right: 5px solid #e74c3c;
-
-    padding-right: 10px;
-
+.container{
+  max-width:900px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
-
-.question {
-
-    margin: 20px 0;
-
+h2{
+  margin-top:30px;
+  border-right:6px solid var(--primary);
+  padding-right:10px;
 }
-
-label {
-
-    display: block;
-
-    margin: 8px 0;
-
-    cursor: pointer;
-
+.question{
+  margin:20px 0;
 }
-
-input[type="text"] {
-
-    width: 100%;
-
-    padding: 10px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 8px;
-
+label{
+  display:block;
+  margin:6px 0;
+  cursor:pointer;
 }
-
-.section {
-
-    margin-top: 30px;
-
-    padding-top: 15px;
-
-    border-top: 2px dashed #eee;
-
+input[type="text"]{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
 }
-
-.hidden {
-
-    display: none;
-
+.hidden{display:none}
+button{
+  margin-top:20px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
 }
-
-button {
-
-    background: #e74c3c;
-
-    color: white;
-
-    border: none;
-
-    padding: 12px 20px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 16px;
-
+button:hover{opacity:.9}
+.note{
+  font-size:13px;
+  color:var(--muted);
 }
-
-button:hover {
-
-    background: #c0392b;
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
+<form id="form">
+
 <h2>🎯 القسم 1: الهدف</h2>
 
 <div class="question">
-
 <p>س1: ما الهدف الرئيسي خلال 60 يوم؟</p>
-
-<label><input type="radio" name="goal"> زيادة المبيعات اليومية</label>
-
-<label><input type="radio" name="goal"> جلب عملاء جدد</label>
-
-<label><input type="radio" name="goal"> رفع الطلبات من تطبيقات التوصيل</label>
-
-<label><input type="radio" name="goal"> تنشيط المبيعات في أوقات الركود</label>
-
+<label><input type="radio" name="goal" value="sales" required> زيادة المبيعات اليومية</label>
+<label><input type="radio" name="goal" value="new_customers"> جلب عملاء جدد</label>
+<label><input type="radio" name="goal" value="delivery"> رفع الطلبات من تطبيقات التوصيل</label>
+<label><input type="radio" name="goal" value="slow_times"> تنشيط المبيعات في أوقات الركود</label>
 </div>
-
-<div class="section">
 
 <h2>🟥 القسم 2: المشكلة</h2>
 
 <div class="question">
-
 <p>س2: أين تكمن المشكلة الرئيسية؟</p>
-
-<label><input type="radio" name="problem" value="low"> ضعف الإقبال</label>
-
+<label><input type="radio" name="problem" value="low" required> ضعف الإقبال</label>
 <label><input type="radio" name="problem" value="return"> عدم عودة العملاء</label>
-
-<label><input type="radio" name="problem" value="both"> كلاهما</label>
-
+<label><input type="radio" name="problem" value="both"> كلا الأمرين معًا</label>
 </div>
 
-<div id="returnReason" class="hidden">
-
-<p>س3: سبب عدم عودة العميل؟</p>
-
-<label><input type="radio" name="reason"> التأخير</label>
-
-<label><input type="radio" name="reason"> جودة الطعام</label>
-
-<label><input type="radio" name="reason"> الخدمة</label>
-
-<label><input type="radio" name="reason"> السعر</label>
-
-<label><input type="radio" name="reason"> غير واضح</label>
-
+<div id="q3" class="hidden question">
+<p>س3: ما السبب الرئيسي لعدم عودة العميل؟</p>
+<label><input type="radio" name="return_reason" value="delay"> التأخير</label>
+<label><input type="radio" name="return_reason" value="quality"> جودة الطعام</label>
+<label><input type="radio" name="return_reason" value="service"> الخدمة</label>
+<label><input type="radio" name="return_reason" value="price"> السعر</label>
+<label><input type="radio" name="return_reason" value="unknown"> غير واضح</label>
 </div>
 
-<div id="marketing" class="hidden">
-
-<p>س4: هل سبق تنفيذ حملات؟</p>
-
+<div id="q4" class="hidden question">
+<p>س4: هل سبق تنفيذ أي حملات تسويقية؟</p>
 <label><input type="radio" name="ads" value="yes"> نعم</label>
-
 <label><input type="radio" name="ads" value="no"> لا</label>
-
 </div>
 
-<div id="adsResult" class="hidden">
-
-<p>س5: نتائج الحملات؟</p>
-
-<label><input type="radio" name="adsRes"> جيدة</label>
-
-<label><input type="radio" name="adsRes"> ضعيفة</label>
-
-<label><input type="radio" name="adsRes"> غير واضحة</label>
-
+<div id="q5" class="hidden question">
+<p>س5: كيف كانت نتائج الحملات السابقة؟</p>
+<label><input type="radio" name="ads_result" value="good"> جيدة</label>
+<label><input type="radio" name="ads_result" value="weak"> ضعيفة</label>
+<label><input type="radio" name="ads_result" value="unknown"> غير واضحة</label>
 </div>
-
-</div>
-
-<div class="section">
 
 <h2>🟩 القسم 3: المنتج</h2>
 
-<p>س6: أبرز طبق</p>
-
-<input type="text">
-
-<p>س7: هل يعود العميل؟</p>
-
-<label><input type="radio" name="return"> نعم</label>
-
-<label><input type="radio" name="return"> أحيانًا</label>
-
-<label><input type="radio" name="return"> نادرًا</label>
-
-<p>س8: لماذا يختاركم العميل؟</p>
-
-<input type="text">
-
+<div class="question">
+<p>س6: ما أبرز طبق لديك؟</p>
+<input type="text" name="top_dish">
 </div>
 
-<div class="section">
+<div class="question">
+<p>س7: هل يعود العميل للشراء؟</p>
+<label><input type="radio" name="return_rate" value="yes"> نعم</label>
+<label><input type="radio" name="return_rate" value="sometimes"> أحيانًا</label>
+<label><input type="radio" name="return_rate" value="rare"> نادرًا</label>
+</div>
+
+<div class="question">
+<p>س8: لماذا يختاركم العميل؟</p>
+<input type="text" name="why_choose">
+</div>
 
 <h2>🟨 القسم 4: السوق</h2>
 
-<p>س9: المنافسين</p>
-
-<input type="text">
-
-<p>س10: لماذا يفضلهم العملاء؟</p>
-
-<label><input type="checkbox"> السعر</label>
-
-<label><input type="checkbox"> الجودة</label>
-
-<label><input type="checkbox"> الشهرة</label>
-
-<label><input type="checkbox"> الموقع</label>
-
-<label><input type="checkbox"> العروض</label>
-
+<div class="question">
+<p>س9: من أبرز منافسيك؟</p>
+<input type="text" name="competitors">
 </div>
 
-<div class="section">
+<div class="question">
+<p>س10: لماذا يفضلهم العملاء؟</p>
+<label><input type="checkbox" name="competitor_adv" value="price"> السعر</label>
+<label><input type="checkbox" name="competitor_adv" value="quality"> الجودة</label>
+<label><input type="checkbox" name="competitor_adv" value="fame"> الشهرة</label>
+<label><input type="checkbox" name="competitor_adv" value="location"> الموقع</label>
+<label><input type="checkbox" name="competitor_adv" value="offers"> العروض</label>
+</div>
 
 <h2>🟪 القسم 5: التسويق</h2>
 
-<p>س11: تقييم السوشيال</p>
-
-<label><input type="radio" name="social" value="weak"> ضعيف</label>
-
-<label><input type="radio" name="social"> متوسط</label>
-
-<label><input type="radio" name="social"> جيد</label>
-
-<div id="socialReason" class="hidden">
-
-<p>س12: سبب الضعف</p>
-
-<label><input type="radio"> لا يوجد محتوى</label>
-
-<label><input type="radio"> لا يوجد وقت</label>
-
-<label><input type="radio"> لا يوجد فريق</label>
-
-<label><input type="radio"> لا نعرف ماذا ننشر</label>
-
+<div class="question">
+<p>س11: كيف تقيّم حضوركم في السوشيال؟</p>
+<label><input type="radio" name="social" value="weak" required> ضعيف</label>
+<label><input type="radio" name="social" value="medium"> متوسط</label>
+<label><input type="radio" name="social" value="good"> جيد</label>
 </div>
 
-<p>س13: تعاون مع مشاهير؟</p>
+<div id="q12" class="hidden question">
+<p>س12: ما سبب ضعف التواجد؟</p>
+<label><input type="radio" name="social_reason" value="no_content"> لا يوجد محتوى</label>
+<label><input type="radio" name="social_reason" value="no_time"> لا يوجد وقت</label>
+<label><input type="radio" name="social_reason" value="no_team"> لا يوجد فريق</label>
+<label><input type="radio" name="social_reason" value="no_idea"> لا نعرف ماذا ننشر</label>
+</div>
 
+<div class="question">
+<p>س13: هل سبق التعاون مع مشاهير؟</p>
 <label><input type="radio" name="influencer" value="yes"> نعم</label>
-
 <label><input type="radio" name="influencer" value="no"> لا</label>
-
-<div id="influencerResult" class="hidden">
-
-<p>س14: النتائج</p>
-
-<label><input type="radio"> قوية</label>
-
-<label><input type="radio"> متوسطة</label>
-
-<label><input type="radio"> ضعيفة</label>
-
 </div>
 
+<div id="q14" class="hidden question">
+<p>س14: كيف كانت النتائج؟</p>
+<label><input type="radio" name="influencer_result" value="strong"> قوية</label>
+<label><input type="radio" name="influencer_result" value="medium"> متوسطة</label>
+<label><input type="radio" name="influencer_result" value="weak"> ضعيفة</label>
 </div>
-
-<div class="section">
 
 <h2>⏱️ القسم 6: التشغيل</h2>
 
-<p>س15: فترات الذروة والركود</p>
-
-<input type="text">
-
+<div class="question">
+<p>س15: متى تكون فترات الذروة والركود؟</p>
+<input type="text" name="peak_times">
 </div>
 
-<div class="section">
+<h2>🟫 القسم 7: الأرقام (اختياري)</h2>
 
-<h2>🟫 القسم 7: الأرقام</h2>
-
-<p>س16: متوسط المبيعات</p>
-
-<input type="text">
-
-<p>س17: عدد الطلبات</p>
-
-<input type="text">
-
+<div class="question">
+<p>س16: كم متوسط المبيعات اليومية؟</p>
+<input type="text" name="daily_sales">
 </div>
 
-<br>
+<div class="question">
+<p>س17: كم عدد الطلبات اليومية؟</p>
+<input type="text" name="daily_orders">
+</div>
 
-<button>إرسال</button>
+<button type="submit">إرسال النموذج</button>
+
+<p class="note">* النموذج يعمل محليًا — يمكن ربطه لاحقًا بقاعدة بيانات</p>
+
+</form>
 
 </div>
 
 <script>
+const problemRadios = document.querySelectorAll('[name="problem"]');
+const adsRadios = document.querySelectorAll('[name="ads"]');
+const socialRadios = document.querySelectorAll('[name="social"]');
+const influencerRadios = document.querySelectorAll('[name="influencer"]');
 
-document.querySelectorAll('input[name="problem"]').forEach(el => {
+const q3 = document.getElementById("q3");
+const q4 = document.getElementById("q4");
+const q5 = document.getElementById("q5");
+const q12 = document.getElementById("q12");
+const q14 = document.getElementById("q14");
 
-    el.addEventListener('change', () => {
+problemRadios.forEach(r=>{
+  r.addEventListener("change", ()=>{
+    const val = document.querySelector('[name="problem"]:checked').value;
 
-        let val = document.querySelector('input[name="problem"]:checked').value;
+    q3.classList.toggle("hidden", !(val==="return"||val==="both"));
+    q4.classList.toggle("hidden", !(val==="low"||val==="both"));
 
-        document.getElementById("returnReason").classList.toggle("hidden", !(val === "return" || val === "both"));
-
-        document.getElementById("marketing").classList.toggle("hidden", !(val === "low" || val === "both"));
-
-    });
-
+    q5.classList.add("hidden");
+  });
 });
 
-document.querySelectorAll('input[name="ads"]').forEach(el => {
-
-    el.addEventListener('change', () => {
-
-        document.getElementById("adsResult").classList.toggle("hidden",
-
-            document.querySelector('input[name="ads"]:checked').value !== "yes");
-
-    });
-
+adsRadios.forEach(r=>{
+  r.addEventListener("change", ()=>{
+    q5.classList.toggle("hidden",
+      document.querySelector('[name="ads"]:checked').value !== "yes");
+  });
 });
 
-document.querySelectorAll('input[name="social"]').forEach(el => {
-
-    el.addEventListener('change', () => {
-
-        document.getElementById("socialReason").classList.toggle("hidden",
-
-            document.querySelector('input[name="social"]:checked').value !== "weak");
-
-    });
-
+socialRadios.forEach(r=>{
+  r.addEventListener("change", ()=>{
+    q12.classList.toggle("hidden",
+      document.querySelector('[name="social"]:checked').value !== "weak");
+  });
 });
 
-document.querySelectorAll('input[name="influencer"]').forEach(el => {
-
-    el.addEventListener('change', () => {
-
-        document.getElementById("influencerResult").classList.toggle("hidden",
-
-            document.querySelector('input[name="influencer"]:checked').value !== "yes");
-
-    });
-
+influencerRadios.forEach(r=>{
+  r.addEventListener("change", ()=>{
+    q14.classList.toggle("hidden",
+      document.querySelector('[name="influencer"]:checked').value !== "yes");
+  });
 });
 
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("تم إرسال النموذج بنجاح ✅");
+});
 </script>
 
 </body>
-
 </html>
