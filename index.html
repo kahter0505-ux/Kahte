@@ -5,216 +5,193 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الطريق للتسويق | مطعم ليالينا</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; background: #f0f4f8; color: #1e293b; }
-        .wrapper { max-width: 750px; margin: 40px auto; padding: 0 20px; }
-        
-        /* لون العنوان أعلى وأسفل الصفحة */
-        .main-title { color: #3b82f6; font-weight: 900; } 
-
-        .question-card { 
-            background: #ffffff; 
+        body { 
+            font-family: 'IBM Plex Sans Arabic', sans-serif; 
+            background: linear-gradient(135deg, #f0f4ff 0%, #e5e7eb 100%); 
+            color: #1f2937;
+            min-height: 100vh;
+        }
+        /* تصميم البطاقة العصري */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
             border-radius: 24px; 
-            padding: 30px; 
-            margin-bottom: 30px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-            /* الإطار العلوي المطلوب */
-            border-top: 8px solid #4f46e5; 
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+            transition: 0.3s ease;
+            margin-bottom: 1.5rem;
         }
-
-        .step-num { 
-            color: #4f46e5; 
-            font-weight: 800; 
-            font-size: 0.9rem; 
-            float: left;
-        }
-
-        .choice-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            margin-top: 12px;
-            cursor: pointer;
-            transition: 0.2s ease;
-        }
-        .choice-item:hover { border-color: #4f46e5; background: #f5f3ff; }
+        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         
-        input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            margin-left: 15px;
-            accent-color: #4f46e5;
-            flex-shrink: 0;
+        /* تصميم الخيارات */
+        .option-box { 
+            display: flex; align-items: center; padding: 1.1rem; 
+            background: #ffffff; border: 2px solid #f3f4f6; 
+            border-radius: 16px; margin-top: 0.75rem; cursor: pointer; transition: 0.2s;
         }
+        .option-box:hover { border-color: #4f46e5; background: #f9faff; }
+        input[type="radio"] { width: 20px; height: 20px; accent-color: #4f46e5; margin-left: 12px; }
 
-        .input-text {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 14px;
-            margin-top: 15px;
-            outline: none;
+        .app-input { 
+            width: 100%; padding: 1rem; border-radius: 12px; 
+            border: 2px solid #f3f4f6; background: #ffffff; 
+            transition: 0.3s; outline: none; margin-top: 10px;
         }
-        .input-text:focus { border-color: #4f46e5; }
+        .app-input:focus { border-color: #4f46e5; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
 
         .btn-submit {
-            background: #1e293b;
-            color: white;
-            width: 100%;
-            padding: 20px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            transition: 0.3s;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white; font-weight: 700; padding: 1.25rem; border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3); transition: 0.3s;
         }
-        .btn-submit:hover { background: #3b82f6; transform: translateY(-3px); }
+        .btn-submit:hover { opacity: 0.9; transform: scale(1.02); }
 
-        #success-msg { display: none; text-align: center; padding: 100px 20px; }
+        .step-num { 
+            background: #eef2ff; color: #4f46e5; 
+            padding: 4px 12px; border-radius: 10px; 
+            font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; display: inline-block;
+        }
+
+        #success-message { display: none; text-align: center; padding: 3rem 1.5rem; }
     </style>
 </head>
-<body>
+<body class="pb-20">
 
-    <div id="form-body" class="wrapper">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl main-title">الطريق للتسويق</h1>
-            <p class="text-gray-500 mt-2 font-bold">تحليل استراتيجي لمطعم ليالينا</p>
-        </header>
+    <div class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200 p-4 text-center">
+        <h1 class="text-2xl font-bold text-indigo-900">الطريق للتسويق</h1>
+        <p class="text-xs text-indigo-500 font-semibold tracking-wide uppercase">نموذج تشخيص مطعم ليالينا</p>
+    </div>
 
-        <iframe name="hidden_frame" style="display:none;" onload="if(submitted){showSuccess()}"></iframe>
-        
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="hidden_frame" onsubmit="submitted=true;">
+    <div id="main-content" class="max-w-2xl mx-auto px-6 mt-10">
+        <!-- Iframe مخفي لمنع الانتقال لصفحة جوجل -->
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showSuccess()}"></iframe>
+
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfZ-RGGrG_bAfda3yca-sM9ZIFG6JGIHcQz16lWuRMvN87Egw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
             
             <!-- 1 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 01</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">ما هو المؤشر الذي يعتبره دليلاً حقيقياً للنجاح المالي؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required><span>نمو المبيعات اليومية ودخل الصندوق</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة."><span>استقطاب زبائن جدد من سكان المنطقة</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1099859393" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل."><span>السيطرة الرقمية وتصدر نتائج البحث</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هو المؤشر الذي إذا تحقق بعد 60 يوماً ستعتبر أن تعاوننا ناجحاً ومجدياً مالياً؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.1099859393" value="1- نمو المبيعات اليومية ودخل الصندوق بشكل واضح ومستمر." required> <span>نمو المبيعات اليومية ودخل الصندوق</span></label>
+                <label class="option-box"><input type="radio" name="entry.1099859393" value="2- استقطاب زبائن جدد من سكان الحي لم يسبق لهم التجربة."> <span>استقطاب زبائن جدد من سكان الحي</span></label>
+                <label class="option-box"><input type="radio" name="entry.1099859393" value="3- السيطرة الرقمية وتصدر نتائج البحث في تطبيقات التوصيل."> <span>تصدّر نتائج تطبيقات التوصيل</span></label>
+                <label class="option-box"><input type="radio" name="entry.1099859393" value="4- تنشيط المبيعات في الفترات الراكدة لرفع الكفاءة التشغيلية."> <span>تنشيط المبيعات في الفترات الراكدة</span></label>
             </div>
 
             <!-- 2 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 02</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">ما هو العائق التشغيلي الأكبر حالياً؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." required><span>نقص أو عدم استقرار العمالة</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1095069852" value="2- تذبذب جودة المواد الخام والموردين."><span>تذبذب جودة المواد الخام والموردين</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1095069852" value="3- ارتفاع تكاليف التشغيل مقارنة بالربح."><span>ارتفاع تكاليف التشغيل مقارنة بالربح</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هو العائق التشغيلي الأكبر الذي يواجه المطعم حالياً؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.1095069852" value="1- نقص أو عدم استقرار العمالة." required> <span>نقص أو عدم استقرار العمالة</span></label>
+                <label class="option-box"><input type="radio" name="entry.1095069852" value="2- تذبذب جودة المواد الخام والموردين."> <span>تذبذب جودة المواد الخام</span></label>
+                <label class="option-box"><input type="radio" name="entry.1095069852" value="3- بطء في تجهيز الطلبات وتسليمها."> <span>بطء تجهيز وتسليم الطلبات</span></label>
+                <label class="option-box"><input type="radio" name="entry.1095069852" value="4- الحاجة لصيانة أو تحديث في مرافق المطعم."> <span>الحاجة لصيانة أو تحديث المرافق</span></label>
             </div>
 
             <!-- 3 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 03</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">الميزانية التسويقية الشهرية المخطط لها؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.1005025151" value="1- أقل من 2000 ريال." required><span>أقل من 2000 ريال</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال."><span>من 2000 إلى 5000 ريال</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1005025151" value="3- أكثر من 5000 ريال."><span>أكثر من 5000 ريال</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هي الميزانية الشهرية "البسيطة" التي تفكر في رصدها كاستثمار؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.1005025151" value="1- أقل من 2000 ريال." required> <span>أقل من 2000 ريال</span></label>
+                <label class="option-box"><input type="radio" name="entry.1005025151" value="2- من 2000 إلى 5000 ريال."> <span>من 2000 إلى 5000 ريال</span></label>
+                <label class="option-box"><input type="radio" name="entry.1005025151" value="3- أكثر من 5000 ريال."> <span>أكثر من 5000 ريال</span></label>
             </div>
 
             <!-- 4 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 04</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">ما هو الطبق "الأيقوني" الأكثر طلباً لديك؟</h2>
-                <input type="text" name="entry.1276136133" class="input-text" placeholder="اكتب هنا..." required>
+                <h3 class="font-bold text-lg text-gray-800">ما هو "الطبق" الأكثر مبيعاً لديك حالياً؟ *</h3>
+                <input type="text" name="entry.1276136133" class="app-input" placeholder="اكتب اسم الطبق هنا..." required>
             </div>
 
             <!-- 5 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 05</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">كيف تصف جودة الخدمة الحالية؟</h2>
-                <input type="text" name="entry.997508088" class="input-text" placeholder="اكتب هنا..." required>
+                <h3 class="font-bold text-lg text-gray-800">كيف تقيم جودة الطعام والخدمة الحالية؟ *</h3>
+                <input type="text" name="entry.997508088" class="app-input" placeholder="مثلاً: جيدة، تحتاج تحسين..." required>
             </div>
 
             <!-- 6 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 06</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">كيف تقيم تواجد المطعم رقمياً اليوم؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.391544910" value="1- ضعيف جداً (أو غير موجود)." required><span>ضعيف جداً أو غير موجود</span></label>
-                <label class="choice-item"><input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم)."><span>متوسط (نشر متقطع وغير منظم)</span></label>
-                <label class="choice-item"><input type="radio" name="entry.391544910" value="3- جيد (يوجد تفاعل ولكن يحتاج احترافية)."><span>جيد ولكن يحتاج احترافية</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هو مستوى تواجد المطعم الحالي على التواصل الاجتماعي؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.391544910" value="1- ضعيف (لا يوجد نشر دوري أو حسابات مهملة)." required> <span>ضعيف (حسابات مهملة)</span></label>
+                <label class="option-box"><input type="radio" name="entry.391544910" value="2- متوسط (نشر متقطع وغير منظم)."> <span>متوسط (نشر متقطع)</span></label>
+                <label class="option-box"><input type="radio" name="entry.391544910" value="3- جيد (نشر مستمر وتفاعل جيد)."> <span>جيد (نشر مستمر)</span></label>
             </div>
 
             <!-- 7 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 07</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">ما هي المنطقة أو الحي المستهدف بدقة؟</h2>
-                <input type="text" name="entry.456560046" class="input-text" placeholder="اكتب هنا..." required>
+                <h3 class="font-bold text-lg text-gray-800">ما هي المنطقة أو الحي الذي يستهدفه المطعم؟ *</h3>
+                <input type="text" name="entry.456560046" class="app-input" placeholder="حدد الحي أو النطاق الجغرافي..." required>
             </div>
 
             <!-- 8 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 08</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">من هو جمهورك الأساسي؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.1554988620" value="1- أفراد (شباب وموظفون)." required><span>أفراد (شباب وموظفون)</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1554988620" value="2- عوائل (طلبات كبيرة وتجمعات)."><span>عوائل (تجمعات عائلية)</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين."><span>مزيج بين النوعين</span></label>
+                <h3 class="font-bold text-lg text-gray-800">هل جمهورك المستهدف يغلب عليه (الأفراد) أم (العائلات)؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.1554988620" value="1- أفراد بشكل أساسي." required> <span>أفراد بشكل أساسي</span></label>
+                <label class="option-box"><input type="radio" name="entry.1554988620" value="2- عائلات بشكل أساسي."> <span>عائلات بشكل أساسي</span></label>
+                <label class="option-box"><input type="radio" name="entry.1554988620" value="3- خليط متساوٍ بين النوعين."> <span>خليط متساوٍ</span></label>
             </div>
 
             <!-- 9 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 09</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">ما الذي يميزكم حقيقةً عن المنافسين؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.1678168052" value="1- الجودة العالية والمذاق الأصيل." required><span>الجودة والمذاق الأصيل</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع."><span>السعر المنافس</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1678168052" value="3- سرعة التوصيل والخدمة."><span>سرعة الخدمة</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هي الميزة التنافسية التي تجعل الزبون يختارك؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.1678168052" value="1- الجودة العالية والمذاق الفريد." required> <span>الجودة والمذاق الفريد</span></label>
+                <label class="option-box"><input type="radio" name="entry.1678168052" value="2- السعر المنافس والمناسب للجميع."> <span>السعر المنافس</span></label>
+                <label class="option-box"><input type="radio" name="entry.1678168052" value="3- السرعة في تقديم الطلبات."> <span>السرعة في التقديم</span></label>
             </div>
 
             <!-- 10 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 10</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">الفئة العمرية الأكثر تردداً؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.1051615624" value="1- مراهقين وطلاب." required><span>مراهقين وطلاب</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة)."><span>شباب (أفراد ومجموعات)</span></label>
-                <label class="choice-item"><input type="radio" name="entry.1051615624" value="3- كبار سن وعائلات."><span>كبار سن وعائلات</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هي الفئة العمرية الأكثر تردداً على المطعم؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.1051615624" value="1- أطفال ومراهقين." required> <span>أطفال ومراهقين</span></label>
+                <label class="option-box"><input type="radio" name="entry.1051615624" value="2- شباب (أفراد ومجموعات صغيرة)."> <span>شباب</span></label>
+                <label class="option-box"><input type="radio" name="entry.1051615624" value="3- كبار السن وعائلات كبيرة."> <span>كبار السن وعائلات</span></label>
             </div>
 
             <!-- 11 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 11</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">ما هي المنصة الأكثر تأثيراً على جمهورك؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.745744296" value="1- تيك توك." required><span>تيك توك</span></label>
-                <label class="choice-item"><input type="radio" name="entry.745744296" value="2- سناب شات."><span>سناب شات</span></label>
-                <label class="choice-item"><input type="radio" name="entry.745744296" value="3- انستقرام."><span>انستقرام</span></label>
+                <h3 class="font-bold text-lg text-gray-800">ما هي المنصة التي ترى أن زبائنك يتفاعلون فيها أكثر؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.745744296" value="1- تيك توك." required> <span>تيك توك</span></label>
+                <label class="option-box"><input type="radio" name="entry.745744296" value="2- سناب شات."> <span>سناب شات</span></label>
+                <label class="option-box"><input type="radio" name="entry.745744296" value="3- انستقرام."> <span>انستقرام</span></label>
             </div>
 
             <!-- 12 -->
-            <div class="question-card">
+            <div class="glass-card p-7">
                 <span class="step-num">السؤال 12</span>
-                <h2 class="text-xl font-bold mt-6 mb-4">كيف تقيم تجاربك التسويقية السابقة؟</h2>
-                <label class="choice-item"><input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." required><span>حققت نتائج ملموسة</span></label>
-                <label class="choice-item"><input type="radio" name="entry.834087530" value="2- نعم، ولكن النتائج لم تكن مرضية."><span>جربت ولم أحقق الأهداف</span></label>
-                <label class="choice-item"><input type="radio" name="entry.834087530" value="3- لا، ستكون هذه المرة الأولى."><span>المرة الأولى لي</span></label>
+                <h3 class="font-bold text-lg text-gray-800">هل سبق لك التعامل مع شركات تسويق؟ *</h3>
+                <label class="option-box"><input type="radio" name="entry.834087530" value="1- نعم، ولدي خبرة جيدة بالنتائج." required> <span>نعم، ولدي خبرة جيدة</span></label>
+                <label class="option-box"><input type="radio" name="entry.834087530" value="2- نعم، ولكن النتائج لم تكن مرضية."> <span>نعم، لكن النتائج غير مرضية</span></label>
+                <label class="option-box"><input type="radio" name="entry.834087530" value="3- لا، ستكون هذه المرة الأولى."> <span>لا، هذه المرة الأولى</span></label>
             </div>
 
-            <button type="submit" class="btn-submit">اعتماد البيانات وإرسالها</button>
+            <button type="submit" class="btn-submit w-full text-xl mt-4 mb-20">إرسال التشخيص والبدء بالخطة 🚀</button>
         </form>
-
-        <footer class="text-center py-6">
-            <p class="main-title text-sm font-bold">جميع الحقوق محفوظة - الطريق للتسويق 2026</p>
-        </footer>
     </div>
 
-    <div id="success-msg" class="wrapper">
-        <div class="question-card text-center" style="border-top-color: #10b981;">
-            <h1 class="text-5xl mb-4">✅</h1>
-            <h2 class="text-2xl font-black main-title">تم الإرسال بنجاح</h2>
-            <p class="text-gray-500 mt-2">شكراً لك أستاذ هاشم، سنقوم بمراجعة البيانات فوراً.</p>
-        </div>
+    <!-- رسالة النجاح -->
+    <div id="success-message" class="max-w-lg mx-auto mt-20 glass-card">
+        <div class="text-6xl mb-4">⭐</div>
+        <h2 class="text-3xl font-bold text-indigo-900 mb-4">تم الإرسال بنجاح!</h2>
+        <p class="text-gray-600 mb-8 leading-relaxed">شكراً لك، لقد استلمنا تشخيص مطعم ليالينا. سنقوم بتحليل البيانات والتواصل معك في أقرب وقت ممكن.</p>
+        <button onclick="location.reload()" class="bg-indigo-100 text-indigo-700 px-6 py-2 rounded-full font-bold">إرسال رد جديد</button>
     </div>
 
     <script>
         var submitted = false;
         function showSuccess() {
             if(submitted) {
-                document.getElementById('form-body').style.display = 'none';
-                document.getElementById('success-msg').style.display = 'block';
+                document.getElementById('main-content').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
                 window.scrollTo(0,0);
             }
         }
